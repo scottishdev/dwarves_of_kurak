@@ -47,6 +47,8 @@ public class DataLoader implements ApplicationRunner {
 
         Monster air = new Monster("Air Freshener", "Perfume", 5, 3, 10, 0);
         monsterRepository.save(air);
+
+        Encounter encounter1 = new Encounter(100);
     }
 
 }

@@ -35,13 +35,14 @@ public class Item {
     @JoinColumn(name = "encounter_id", nullable = false)
     private Encounter encounter;
 
-
     public Item(String name, String type, Double itemStrength, Double buyCost, Double sellCost) {
         this.name = name;
         this.type = type;
         this.itemStrength = itemStrength;
         this.buyCost = buyCost;
         this.sellCost = sellCost;
+        this.character = character;
+        this.encounter = encounter;
     }
 
     public Item (){

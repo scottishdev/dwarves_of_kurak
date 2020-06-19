@@ -3,6 +3,7 @@ package com.example.codeclan.DwarvesOfKurak.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,9 +25,9 @@ public class Encounter {
     private Long id;
 
 
-    public Encounter(List<Monster> monsters, List<Item> inventory, int coinPurse) {
-        this.monsters = monsters;
-        this.inventory = inventory;
+    public Encounter(int coinPurse) {
+        this.monsters = new ArrayList<Monster>();
+        this.inventory = new ArrayList<Item>();
         this.coinPurse = coinPurse;
     }
 

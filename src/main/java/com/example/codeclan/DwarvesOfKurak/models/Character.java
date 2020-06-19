@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -75,22 +76,21 @@ public class Character {
     @Column(name = "coinPurse")
     private int coinPurse;
 
-
-    public Character(String name, String race, String gender, String backStory, Job job) {
+    public Character(String name, String race, String gender, String backStory) {
         this.name = name;
         this.race = race;
         this.gender = gender;
         this.backStory = backStory;
         this.weapon = null;
         this.armour = null;
-        this.hitPoints = 100;
-        this.manaPoints = 50;
-        this.strength = 5;
-        this.intelligence = 5;
-//        this.inventory = new ArrayList<Item>();
-//        this.skills = new ArrayList<Skill>();
-        this.coinPurse = 1000;
-//        this.job = job;
+        this.hitPoints = hitPoints;
+        this.manaPoints = manaPoints;
+        this.strength = strength;
+        this.intelligence = intelligence;
+        this.job = job;
+        this.coinPurse = 0;
+        this.inventory = new ArrayList<Item>();
+        this.skills = new ArrayList<Skill>();
     }
 
     public Character(){

@@ -28,6 +28,7 @@ public class Job {
         this.name = name;
         this.strengthBonusStat = strengthBonusStat;
         this.intelBonusStat = intelBonusStat;
+        this.character = character;
     }
 
     public Job(){
