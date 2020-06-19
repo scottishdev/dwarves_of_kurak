@@ -22,6 +22,7 @@ public class Character {
     @Column(name = "backStory")
     private String backStory;
 
+//    change to item once we put it
     @Column(name = "weapon")
     private String weapon;
 

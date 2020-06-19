@@ -1,6 +1,8 @@
 package com.example.codeclan.DwarvesOfKurak.components;
 
+import com.example.codeclan.DwarvesOfKurak.models.Item;
 import com.example.codeclan.DwarvesOfKurak.repository.CharacterRepository;
+import com.example.codeclan.DwarvesOfKurak.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -12,6 +14,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     CharacterRepository characterRepository;
 
+    @Autowired
+    ItemRepository itemRepository;
+
 
     public DataLoader(){
     }
@@ -19,5 +24,10 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         Character jim = new Character("Jim", "Dwarf", "Male", "asjdfjakdhfjhsdjkghshjdgj");
         characterRepository.save(jim);
+
+        Item stick = new Item("wooden Stick", "Sword", 5.0, 10.0, 1.0);
+        itemRepository.save(stick);
+
     }
+
 }
