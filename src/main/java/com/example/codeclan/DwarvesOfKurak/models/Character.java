@@ -51,6 +51,10 @@ public class Character {
     @JoinColumn(name = "item")
     private List<Item> inventory;
 
+    @ManyToOne
+    @JoinColumn(name = "job_id", nullable = false)
+    private Job job;
+
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(name = "skills_characters",
@@ -71,10 +75,8 @@ public class Character {
     @Column(name = "coinPurse")
     private int coinPurse;
 
-//    @Column(name = "jobClass")
-//    private Job job;
 
-    public Character(String name, String race, String gender, String backStory) {
+    public Character(String name, String race, String gender, String backStory, Job job) {
         this.name = name;
         this.race = race;
         this.gender = gender;

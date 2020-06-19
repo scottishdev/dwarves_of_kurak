@@ -20,6 +20,10 @@ public class Job {
     @Column
     private int intelBonusStat;
 
+    @OneToMany
+    @JoinColumn(name = "character_id", nullable = false)
+    private Character character;
+
     public Job(String name, int strengthBonusStat, int intelBonusStat) {
         this.name = name;
         this.strengthBonusStat = strengthBonusStat;
