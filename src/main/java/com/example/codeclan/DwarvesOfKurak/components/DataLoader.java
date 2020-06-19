@@ -28,6 +28,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     MonsterRepository monsterRepository;
 
+    @Autowired
+    EncounterRepository encounterRepository;
+
 
     public DataLoader(){
     }
@@ -49,6 +52,7 @@ public class DataLoader implements ApplicationRunner {
         monsterRepository.save(air);
 
         Encounter encounter1 = new Encounter(100);
+        encounterRepository.save(encounter1);
     }
 
 }
