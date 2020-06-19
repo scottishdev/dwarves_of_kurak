@@ -1,18 +1,13 @@
 package com.example.codeclan.DwarvesOfKurak.components;
 
 import com.example.codeclan.DwarvesOfKurak.controller.JobController;
-import com.example.codeclan.DwarvesOfKurak.models.Item;
-import com.example.codeclan.DwarvesOfKurak.models.Job;
-import com.example.codeclan.DwarvesOfKurak.models.Skill;
-import com.example.codeclan.DwarvesOfKurak.repository.CharacterRepository;
-import com.example.codeclan.DwarvesOfKurak.repository.ItemRepository;
-import com.example.codeclan.DwarvesOfKurak.repository.JobRepository;
-import com.example.codeclan.DwarvesOfKurak.repository.SkillRepository;
+import com.example.codeclan.DwarvesOfKurak.models.*;
+import com.example.codeclan.DwarvesOfKurak.models.Character;
+import com.example.codeclan.DwarvesOfKurak.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-import com.example.codeclan.DwarvesOfKurak.models.Character;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +26,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     JobRepository jobRepository;
 
+    @Autowired
+    MonsterRepository monsterRepository;
+
 
     public DataLoader(){
     }
@@ -47,6 +45,9 @@ public class DataLoader implements ApplicationRunner {
 
         Job bum = new Job ("Bum", 1, 1);
         jobRepository.save(bum);
+
+        Monster air = new Monster("Air Freshener", "Perfume", 5, 3, 10, 0);
+        monsterRepository.save(air);
     }
 
 }

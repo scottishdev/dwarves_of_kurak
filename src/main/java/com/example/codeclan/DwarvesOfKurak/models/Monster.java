@@ -1,11 +1,9 @@
 package com.example.codeclan.DwarvesOfKurak.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.List;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "monsters")
 public class Monster {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -35,14 +33,14 @@ public class Monster {
     @Column(name = "intelligence")
     private int intelligence;
 
-    @Column(name = "inventory")
-    private List<Item> inventory;
+//    @Column(name = "inventory")
+//    private List<Item> inventory;
 
-    @Column(name = "skills")
-    private List<Skill> skills;
-
-    @Column(name = "coinPurse")
-    private int coinPurse;
+//    @Column(name = "skills")
+//    private List<Skill> skills;
+//
+//    @Column(name = "coinPurse")
+//    private int coinPurse;
 
     public Monster(String name, String race, int hitPoints, int manaPoints, int strength, int intelligence) {
         this.name = name;
@@ -127,27 +125,27 @@ public class Monster {
         this.intelligence = intelligence;
     }
 
-    public List<Item> getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(List<Item> inventory) {
-        this.inventory = inventory;
-    }
-
-    public List<Skill> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
-    }
-
-    public int getCoinPurse() {
-        return coinPurse;
-    }
-
-    public void setCoinPurse(int coinPurse) {
-        this.coinPurse = coinPurse;
-    }
+//    public List<Item> getInventory() {
+//        return inventory;
+//    }
+//
+//    public void setInventory(List<Item> inventory) {
+//        this.inventory = inventory;
+//    }
+//
+//    public List<Skill> getSkills() {
+//        return skills;
+//    }
+//
+//    public void setSkills(List<Skill> skills) {
+//        this.skills = skills;
+//    }
+//
+//    public int getCoinPurse() {
+//        return coinPurse;
+//    }
+//
+//    public void setCoinPurse(int coinPurse) {
+//        this.coinPurse = coinPurse;
+//    }
 }
