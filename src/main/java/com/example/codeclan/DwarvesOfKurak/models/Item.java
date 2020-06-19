@@ -26,6 +26,10 @@ public class Item {
     @Column
     private Double sellCost;
 
+    @ManyToOne
+    @JoinColumn(name = "character_id", nullable = false)
+    private Character character;
+
     public Item(String name, String type, Double itemStrength, Double buyCost, Double sellCost) {
         this.name = name;
         this.type = type;
