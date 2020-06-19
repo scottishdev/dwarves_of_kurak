@@ -2,6 +2,7 @@ package com.example.codeclan.DwarvesOfKurak.models;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Item")
@@ -29,6 +30,11 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "character_id", nullable = false)
     private Character character;
+
+    @ManyToOne
+    @JoinColumn(name = "encounter_id", nullable = false)
+    private Encounter encounter;
+
 
     public Item(String name, String type, Double itemStrength, Double buyCost, Double sellCost) {
         this.name = name;

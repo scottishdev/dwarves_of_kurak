@@ -32,6 +32,10 @@ public class Monster {
 
     @Column(name = "intelligence")
     private int intelligence;
+
+    @ManyToOne
+    @JoinColumn(name = "encounter_id", nullable = false)
+    private Encounter encounter;
     
 
     public Monster(String name, String race, int hitPoints, int manaPoints, int strength, int intelligence) {
@@ -43,6 +47,7 @@ public class Monster {
         this.intelligence = intelligence;
         this.weapon = null;
         this.armour = null;
+        this.encounter = null;
     }
 
     public Monster(){

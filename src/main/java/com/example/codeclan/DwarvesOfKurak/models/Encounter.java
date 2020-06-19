@@ -13,7 +13,7 @@ public class Encounter {
     @OneToMany(mappedBy = "encounter", fetch = FetchType.LAZY)
     private List<Monster> monsters;
 
-    @Column(name = "inventory")
+    @OneToMany(mappedBy = "encounter", fetch = FetchType.LAZY)
     private List<Item> inventory;
 
     @Column(name = "coinPurse")
@@ -22,6 +22,7 @@ public class Encounter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 
     public Encounter(List<Monster> monsters, List<Item> inventory, int coinPurse) {
         this.monsters = monsters;
