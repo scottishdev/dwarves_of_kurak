@@ -1,7 +1,11 @@
 package com.example.codeclan.DwarvesOfKurak.models;
 
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name ="skills")
@@ -23,11 +27,29 @@ public class Skill {
     @Column
     private int damage;
 
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            joinColumns = {@JoinColumn(
+                    name = "character_id",
+                    nullable = false,
+                    updatable = false
+            )},
+            inverseJoinColumns = {@JoinColumn(
+                    name = "skill_id",
+                    nullable = false,
+                    updatable = false
+            )}
+    )
+    private List<Character> characters;
+
+
     public Skill(String name, String type, String sideEffect, int damage) {
         this.name = name;
         this.type = type;
         this.sideEffect = sideEffect;
         this.damage = damage;
+        this.characters = new ArrayList<Character>();
     }
 
     public Skill(){
@@ -67,5 +89,9 @@ public class Skill {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public List<Character> getCharacters() {
+        return characters;
     }
 }

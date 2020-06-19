@@ -1,6 +1,11 @@
 package com.example.codeclan.DwarvesOfKurak.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "characters")
@@ -41,11 +46,27 @@ public class Character {
     @Column(name = "intelligence")
     private int intelligence;
 
-//    @Column(name = "inventory")
-//    private List<Item> inventory;
-//
-//    @Column(name = "skills")
-//    private List<Skill> skills;
+    @JsonBackReference
+    @OneToMany
+    @JoinColumn(name = "item")
+    private List<Item> inventory;
+
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(name = "skills_characters",
+            joinColumns = {@JoinColumn(
+                    name = "skill_id",
+                    nullable = false,
+                    updatable = false
+            )},
+
+            inverseJoinColumns = {@JoinColumn(
+                    name = "character_id",
+                    nullable = false,
+                    updatable = false
+            )}
+            )
+    private List<Skill> skills;
 
     @Column(name = "coinPurse")
     private int coinPurse;
