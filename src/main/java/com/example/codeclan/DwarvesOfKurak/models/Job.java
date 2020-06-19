@@ -15,11 +15,15 @@ public class Job {
     private String name;
 
     @Column
-    private int bonusStat;
+    private int strengthBonusStat;
 
-    public Job(String name, List<Integer> bonusStat) {
+    @Column
+    private int intelBonusStat;
+
+    public Job(String name, int strengthBonusStat, int intelBonusStat) {
         this.name = name;
-        this.bonusStat = bonusStat;
+        this.strengthBonusStat = strengthBonusStat;
+        this.intelBonusStat = intelBonusStat;
     }
 
     public Job(){
@@ -38,11 +42,19 @@ public class Job {
         this.name = name;
     }
 
-    public List<Integer> getBonusStat() {
-        return bonusStat;
+    public int getStrengthBonusStat() {
+        return strengthBonusStat;
     }
 
-    public void setBonusStat(List<Integer> bonusStat) {
-        this.bonusStat = bonusStat;
+    public void setStrengthBonusStat(int strengthBonusStat) {
+        this.strengthBonusStat = strengthBonusStat;
+    }
+
+    public int getIntelBonusStat() {
+        return intelBonusStat;
+    }
+
+    public void setIntelBonusStat(int intelBonusStat) {
+        this.intelBonusStat = intelBonusStat;
     }
 }

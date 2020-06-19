@@ -45,10 +45,7 @@ public class DataLoader implements ApplicationRunner {
         Skill fart = new Skill("fart", "gas", "posion", 5);
         skillRepository.save(fart);
 
-        List<Integer> bonusStat = new ArrayList<>();
-        bonusStat.add(3);
-        bonusStat.add(6);
-        Job bum = new Job ("Bum", bonusStat);
+        Job bum = new Job ("Bum", 1, 1);
         jobRepository.save(bum);
     }
 
