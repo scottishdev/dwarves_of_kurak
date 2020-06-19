@@ -42,10 +42,6 @@ public class Item {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -86,9 +82,4 @@ public class Item {
         this.sellCost = sellCost;
     }
 }
-//    Name	String
-//    Type	String(Weapon/HPPotion/MPPotion/Armour)
-//ItemStr	double
-//        buyCost	double
-//        sellCost	double
 
