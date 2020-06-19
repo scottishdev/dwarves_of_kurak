@@ -34,13 +34,13 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) {
-        Character jim = new Character("Jim", "Dwarf", "Male", "asjdfjakdhfjhsdjkghshjdgj");
+        Character jim = new Character("Jim", "Dwarf", "Male", "the mystery of Jim");
         characterRepository.save(jim);
 
-        Item stick = new Item("wooden Stick", "Sword", 5.0, 10.0, 1.0);
+        Item stick = new Item("wooden Stick", "weapon", 5.0, 10.0, 1.0);
         itemRepository.save(stick);
 
-        Skill fart = new Skill("fart", "gas", "posion", 5);
+        Skill fart = new Skill("fart", "gas", "poison", 5);
         skillRepository.save(fart);
 
         Job bum = new Job ("Bum", 1, 1);
