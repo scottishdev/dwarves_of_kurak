@@ -1,4 +1,4 @@
-package models;
+package com.example.codeclan.DwarvesOfKurak.models;
 
 import javax.persistence.*;
 
@@ -155,6 +155,10 @@ public class Character {
 
     public void setCoinPurse(int coinPurse) {
         this.coinPurse = coinPurse;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
 
