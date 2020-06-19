@@ -1,6 +1,5 @@
 package com.example.codeclan.DwarvesOfKurak.components;
 
-import com.example.codeclan.DwarvesOfKurak.controller.JobController;
 import com.example.codeclan.DwarvesOfKurak.models.*;
 import com.example.codeclan.DwarvesOfKurak.models.Character;
 import com.example.codeclan.DwarvesOfKurak.repository.*;
