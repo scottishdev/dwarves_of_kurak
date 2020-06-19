@@ -69,6 +69,10 @@ public class Character {
 //        this.job = job;
     }
 
+    public Character(){
+
+    }
+
     public String getName() {
         return name;
     }
