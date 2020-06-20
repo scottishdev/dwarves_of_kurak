@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import Character from '../components/characters/Character';
+import Request from '../helpers/request.js';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class CharacterContainer extends Component{
   constructor(props){
@@ -9,18 +11,25 @@ class CharacterContainer extends Component{
     }
   }
 
-  // componentDidMount(){
-  //   const request = new Request();
-  //
-  //   request.get('/api/characters')
-  //   .then(data => this.setState({characters: data}))
-  // }
+  componentDidMount(){
+    const request = new Request();
+
+    request.get('/api/characters')
+    .then(data => this.setState({characters: data}))
+  }
 
   render(){
     return(
+      <Router>
       <Fragment>
-      <p>links will go here</p>
+      <Switch>
+      <Route render={(props) => {
+        return <Character characters={this.state.characters}/>
+      }}/>
+      <p>characters links to be added here</p>
+      </Switch>
       </Fragment>
+      </Router>
     )
   }
 
