@@ -1,13 +1,13 @@
 import React, {Component, Fragment} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Character from '../components/characters/Character';
 import CharacterList from '../components/characters/CharacterList';
 import Request from '../helpers/request.js';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class CharacterContainer extends Component{
   constructor(props){
     super(props);
-    this.state ={
+    this.state = {
       characters: []
     }
   }
@@ -17,6 +17,7 @@ class CharacterContainer extends Component{
 
     request.get('/api/characters')
     .then(data => this.setState({characters: data}))
+
   }
 
   render(){
@@ -24,12 +25,9 @@ class CharacterContainer extends Component{
       <Router>
         <Fragment>
           <Switch>
-            <div>
             <Route render={(props) => {
               return <CharacterList characters={this.state.characters}/>
             }}/>
-            <p>Test test </p>
-            </div>
           </Switch>
         </Fragment>
       </Router>
