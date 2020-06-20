@@ -21,14 +21,14 @@ class CharacterContainer extends Component{
   render(){
     return(
       <Router>
-      <Fragment>
-      <Switch>
-      <Route render={(props) => {
-        return <Character characters={this.state.characters}/>
-      }}/>
-      <p>characters links to be added here</p>
-      </Switch>
-      </Fragment>
+        <Fragment>
+          <Switch>
+            <Route render={(props) => {
+              return <Character characters={this.state.characters}/>
+            }}/>
+            <p>characters links to be added here</p>
+          </Switch>
+        </Fragment>
       </Router>
     )
   }

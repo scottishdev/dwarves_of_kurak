@@ -1,0 +1,26 @@
+Index: src/main/java/com/example/codeclan/DwarvesOfKurak/models/Monster.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.codeclan.DwarvesOfKurak.models;\n\nimport javax.persistence.*;\n\n@Entity\n@Table(name = \"monsters\")\npublic class Monster {\n    @Id\n    @GeneratedValue( strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    @Column(name = \"name\")\n    private String name;\n\n    @Column(name = \"race\")\n    private String race;\n\n    @Column(name = \"weapon\")\n    private String weapon;\n\n    @Column(name = \"armour\")\n    private String armour;\n\n    @Column(name = \"hitPoints\")\n    private int hitPoints;\n\n    @Column(name = \"manaPoints\")\n    private int manaPoints;\n\n    @Column(name = \"strength\")\n    private int strength;\n\n    @Column(name = \"intelligence\")\n    private int intelligence;\n    \n\n    public Monster(String name, String race, int hitPoints, int manaPoints, int strength, int intelligence) {\n        this.name = name;\n        this.race = race;\n        this.hitPoints = hitPoints;\n        this.manaPoints = manaPoints;\n        this.strength = strength;\n        this.intelligence = intelligence;\n        this.weapon = null;\n        this.armour = null;\n    }\n\n    public Monster(){\n\n    }\n\n    public Long getId() {\n        return id;\n    }\n\n    public String getName() {\n        return name;\n    }\n\n    public void setName(String name) {\n        this.name = name;\n    }\n\n    public String getRace() {\n        return race;\n    }\n\n    public void setRace(String race) {\n        this.race = race;\n    }\n\n    public String getWeapon() {\n        return weapon;\n    }\n\n    public void setWeapon(String weapon) {\n        this.weapon = weapon;\n    }\n\n    public String getArmour() {\n        return armour;\n    }\n\n    public void setArmour(String armour) {\n        this.armour = armour;\n    }\n\n    public int getHitPoints() {\n        return hitPoints;\n    }\n\n    public void setHitPoints(int hitPoints) {\n        this.hitPoints = hitPoints;\n    }\n\n    public int getManaPoints() {\n        return manaPoints;\n    }\n\n    public void setManaPoints(int manaPoints) {\n        this.manaPoints = manaPoints;\n    }\n\n    public int getStrength() {\n        return strength;\n    }\n\n    public void setStrength(int strength) {\n        this.strength = strength;\n    }\n\n    public int getIntelligence() {\n        return intelligence;\n    }\n\n    public void setIntelligence(int intelligence) {\n        this.intelligence = intelligence;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/example/codeclan/DwarvesOfKurak/models/Monster.java	(revision c1540eee604d3b99980ad3c010a4dfca0051dce3)
++++ src/main/java/com/example/codeclan/DwarvesOfKurak/models/Monster.java	(date 1592641680337)
+@@ -32,7 +32,7 @@
+ 
+     @Column(name = "intelligence")
+     private int intelligence;
+-    
++
+ 
+     public Monster(String name, String race, int hitPoints, int manaPoints, int strength, int intelligence) {
+         this.name = name;
+@@ -48,7 +48,6 @@
+     public Monster(){
+ 
+     }
+-
+     public Long getId() {
+         return id;
+     }
