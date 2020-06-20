@@ -1,5 +1,6 @@
 package com.example.codeclan.DwarvesOfKurak.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -26,6 +27,7 @@ public class Character {
     @Column(name = "backStory")
     private String backStory;
 
+    @JsonIgnoreProperties(value="character")
     @OneToOne
     @JoinColumn(name = "weapon", referencedColumnName="id")
     private Item weapon;
@@ -45,6 +47,7 @@ public class Character {
     @Column(name = "intelligence")
     private int intelligence;
 
+    @JsonIgnoreProperties(value="character")
     @OneToMany
     private List<Item> inventory;
 
@@ -195,6 +198,12 @@ public class Character {
 
     public void addItem(Item item){
         this.inventory.add(item);
+        item.setCharacter(this);
+    }
+
+    public void equipWeapon(Item item){
+        this.inventory.remove(item);
+        this.setWeapon(item);
     }
 
     public List<Skill> getSkills() {

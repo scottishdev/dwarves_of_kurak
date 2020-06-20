@@ -39,8 +39,9 @@ public class DataLoader implements ApplicationRunner {
         Item potion = new Item("health Pot","hp_potion",10.0,5.0,2.0);
         itemRepository.save(stick);
         itemRepository.save(potion);
-        jim.setWeapon(stick);
+        jim.addItem(stick);
         jim.addItem(potion);
+        jim.equipWeapon(stick);
         characterRepository.save(jim);
 
 
