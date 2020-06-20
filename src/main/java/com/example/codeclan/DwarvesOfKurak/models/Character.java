@@ -1,7 +1,5 @@
 package com.example.codeclan.DwarvesOfKurak.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -47,8 +45,7 @@ public class Character {
     @Column(name = "intelligence")
     private int intelligence;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "character", fetch = FetchType.LAZY)
+    @OneToMany
     private List<Item> inventory;
 
     @ManyToMany
@@ -194,6 +191,10 @@ public class Character {
 
     public void setInventory(List<Item> inventory) {
         this.inventory = inventory;
+    }
+
+    public void addItem(Item item){
+        this.inventory.add(item);
     }
 
     public List<Skill> getSkills() {

@@ -36,8 +36,11 @@ public class DataLoader implements ApplicationRunner {
         Character jim = new Character("Jim", "Dwarf", "Male", "the mystery of Jim");
 
         Item stick = new Item("wooden Stick", "weapon", 5.0, 10.0, 1.0);
+        Item potion = new Item("health Pot","hp_potion",10.0,5.0,2.0);
         itemRepository.save(stick);
+        itemRepository.save(potion);
         jim.setWeapon(stick);
+        jim.addItem(potion);
         characterRepository.save(jim);
 
 
