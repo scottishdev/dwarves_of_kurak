@@ -25,6 +25,7 @@ public class Encounter {
     private Long id;
 
 
+
     public Encounter(int coinPurse) {
         this.monsters = new ArrayList<Monster>();
         this.inventory = new ArrayList<Item>();
