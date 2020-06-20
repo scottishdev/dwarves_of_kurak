@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Character from '../components/Character.js'
+import Character from '../components/characters/Character.js';
+import CharacterContainer from './CharacterContainer.js';
 
 
 class GameContainer extends Component{
@@ -13,6 +14,7 @@ render(){
   return (
     <div>
     <Character />
+    <CharacterContainer/>
     <h2>Game stuff</h2>
 
     </div>
