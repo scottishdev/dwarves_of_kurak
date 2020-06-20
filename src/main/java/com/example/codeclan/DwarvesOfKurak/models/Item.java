@@ -1,7 +1,11 @@
 package com.example.codeclan.DwarvesOfKurak.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Item")
@@ -25,6 +29,7 @@ public class Item {
 
     @Column
     private Double sellCost;
+
 
     public Item(String name, String type, Double itemStrength, Double buyCost, Double sellCost) {
         this.name = name;

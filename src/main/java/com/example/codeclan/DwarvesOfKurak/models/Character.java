@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -71,6 +72,7 @@ public class Character {
     @Column(name = "coinPurse")
     private int coinPurse;
 
+
 //    @Column(name = "jobClass")
 //    private Job job;
 
@@ -85,8 +87,8 @@ public class Character {
         this.manaPoints = 50;
         this.strength = 5;
         this.intelligence = 5;
-//        this.inventory = new ArrayList<Item>();
-//        this.skills = new ArrayList<Skill>();
+        this.inventory = new ArrayList<Item>();
+        this.skills = new ArrayList<Skill>();
         this.coinPurse = 1000;
 //        this.job = job;
     }
@@ -186,17 +188,20 @@ public class Character {
     public Long getId() {
         return id;
     }
+
+    public List<Item> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(List<Item> inventory) {
+        this.inventory = inventory;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
 }
-
-
-//        attack(Enemy)
-//        defend()
-//        useItem(Item, Target)
-//        useAbility(Skill, Target)
-//        tradeItem(Item,Target)
-//        sellItem(Item,Target)
-//        buyItem(Item,Target)
-//        addSkill(Skill)
-//        removeSkill(Skill)
-//        Equip(item)
-//        Unequip(item)
