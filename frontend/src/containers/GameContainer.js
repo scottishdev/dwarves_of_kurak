@@ -14,7 +14,6 @@ class GameContainer extends Component{
 render(){
   return (
     <div>
-    <Character />
     <CharacterContainer/>
     <h2>Game stuff</h2>
     </div>

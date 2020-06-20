@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import Character from '../components/characters/Character';
+import CharacterList from '../components/characters/CharacterList';
 import Request from '../helpers/request.js';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -23,10 +24,12 @@ class CharacterContainer extends Component{
       <Router>
         <Fragment>
           <Switch>
+            <div>
             <Route render={(props) => {
-              return <Character characters={this.state.characters}/>
+              return <CharacterList characters={this.state.characters}/>
             }}/>
-            <p>characters links to be added here</p>
+            <p>Test test </p>
+            </div>
           </Switch>
         </Fragment>
       </Router>

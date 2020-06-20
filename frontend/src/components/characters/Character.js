@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 
 
 const Character = (character) => {
   return (
-    // <p>{character.name}</p>
-    <p>Character stuff goes here</p>
+    <Fragment>
+      <p>{character.name}</p>
+
+    </Fragment>
   )
 
 }
