@@ -10,7 +10,7 @@ const Character = ({character}) => {
   return (
     <Fragment>
       <p>{character.name}</p>
-      <p>{character.backstory}</p>
+      <p>{character.backStory}</p>
       <p>{character.race}</p>
     </Fragment>
   )
