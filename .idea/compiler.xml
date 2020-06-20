@@ -13,9 +13,12 @@
       <module name="DwarvesOfKurak" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+<<<<<<< HEAD
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="DwarvesOfKurak" options="-parameters" />
     </option>
   </component>
+=======
+>>>>>>> dd37fe53d6e083930a6e0f0c8865507e04101373
 </project>
