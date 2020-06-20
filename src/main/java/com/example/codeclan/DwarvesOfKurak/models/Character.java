@@ -71,6 +71,7 @@ public class Character {
     @Column(name = "coinPurse")
     private int coinPurse;
 
+
 //    @Column(name = "jobClass")
 //    private Job job;
 
@@ -93,14 +94,6 @@ public class Character {
 
     public Character(){
 
-    }
-
-    public List<Item> getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(List<Item> inventory) {
-        this.inventory = inventory;
     }
 
     public String getName() {
@@ -194,17 +187,20 @@ public class Character {
     public Long getId() {
         return id;
     }
+
+    public List<Item> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(List<Item> inventory) {
+        this.inventory = inventory;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
 }
-
-
-//        attack(Enemy)
-//        defend()
-//        useItem(Item, Target)
-//        useAbility(Skill, Target)
-//        tradeItem(Item,Target)
-//        sellItem(Item,Target)
-//        buyItem(Item,Target)
-//        addSkill(Skill)
-//        removeSkill(Skill)
-//        Equip(item)
-//        Unequip(item)

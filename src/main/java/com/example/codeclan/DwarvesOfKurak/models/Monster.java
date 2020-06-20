@@ -32,7 +32,7 @@ public class Monster {
 
     @Column(name = "intelligence")
     private int intelligence;
-    
+
 
     public Monster(String name, String race, int hitPoints, int manaPoints, int strength, int intelligence) {
         this.name = name;
@@ -48,7 +48,6 @@ public class Monster {
     public Monster(){
 
     }
-
     public Long getId() {
         return id;
     }

@@ -1,7 +1,11 @@
 package com.example.codeclan.DwarvesOfKurak.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "items")
