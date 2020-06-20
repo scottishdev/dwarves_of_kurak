@@ -2,6 +2,7 @@ package com.example.codeclan.DwarvesOfKurak.models;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -30,8 +31,9 @@ public class Item {
     @Column
     private Double sellCost;
 
+    @JsonIgnoreProperties(value="character")
     @ManyToOne
-    @JoinColumn(name = "character_id")
+    @JoinColumn(name="held_by",referencedColumnName = "id")
     private Character character;
 
     public Item(String name, String type, Double itemStrength, Double buyCost, Double sellCost) {

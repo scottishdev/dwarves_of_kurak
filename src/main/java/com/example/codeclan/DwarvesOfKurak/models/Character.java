@@ -1,7 +1,6 @@
 package com.example.codeclan.DwarvesOfKurak.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -29,11 +28,13 @@ public class Character {
 
     @JsonIgnoreProperties(value="character")
     @OneToOne
-    @JoinColumn(name = "weapon", referencedColumnName="id")
+    @JoinColumn(name = "weapon", referencedColumnName = "id")
     private Item weapon;
 
-    @Column(name = "armour")
-    private String armour;
+    @JsonIgnoreProperties(value="character")
+    @OneToOne
+    @JoinColumn(name = "armour", referencedColumnName = "id")
+    private Item armour;
 
     @Column(name = "hitPoints")
     private int hitPoints;
@@ -47,33 +48,21 @@ public class Character {
     @Column(name = "intelligence")
     private int intelligence;
 
-    @JsonIgnoreProperties(value="character")
-    @OneToMany
-    private List<Item> inventory;
-
     @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(name = "skills_characters",
-            joinColumns = {@JoinColumn(
-                    name = "skill_id",
-                    nullable = false,
-                    updatable = false
-            )},
-
-            inverseJoinColumns = {@JoinColumn(
-                    name = "character_id",
-                    nullable = false,
-                    updatable = false
-            )}
+    @JoinTable(
+            name = "skills_characters",
+            joinColumns = {@JoinColumn(name = "skill_id",nullable = false,updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "character_id",nullable = false,updatable = false)}
             )
     private List<Skill> skills;
 
     @Column(name = "coinPurse")
     private int coinPurse;
 
+    @JsonIgnoreProperties(value="character")
+    @OneToMany(mappedBy="character", fetch = FetchType.LAZY)
+    private List<Item> items;
 
-//    @Column(name = "jobClass")
-//    private Job job;
 
     public Character(String name, String race, String gender, String backStory) {
         this.name = name;
@@ -86,14 +75,25 @@ public class Character {
         this.manaPoints = 50;
         this.strength = 5;
         this.intelligence = 5;
-        this.inventory = new ArrayList<Item>();
-//        this.skills = new ArrayList<Skill>();
         this.coinPurse = 1000;
-//        this.job = job;
+        this.items = new ArrayList<>();
+        this.skills = new ArrayList<>();
     }
 
     public Character(){
 
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public void addItem(Item item){
+        this.items.add(item);
     }
 
     public String getName() {
@@ -136,11 +136,11 @@ public class Character {
         this.weapon = weapon;
     }
 
-    public String getArmour() {
+    public Item getArmour() {
         return armour;
     }
 
-    public void setArmour(String armour) {
+    public void setArmour(Item armour) {
         this.armour = armour;
     }
 
@@ -176,41 +176,19 @@ public class Character {
         this.intelligence = intelligence;
     }
 
-    public int getCoinPurse() {
-        return coinPurse;
-    }
-
-    public void setCoinPurse(int coinPurse) {
-        this.coinPurse = coinPurse;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public List<Item> getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(List<Item> inventory) {
-        this.inventory = inventory;
-    }
-
-    public void addItem(Item item){
-        this.inventory.add(item);
-        item.setCharacter(this);
-    }
-
-    public void equipWeapon(Item item){
-        this.inventory.remove(item);
-        this.setWeapon(item);
-    }
-
     public List<Skill> getSkills() {
         return skills;
     }
 
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
+    }
+
+    public int getCoinPurse() {
+        return coinPurse;
+    }
+
+    public void setCoinPurse(int coinPurse) {
+        this.coinPurse = coinPurse;
     }
 }

@@ -8,9 +8,6 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Component
 public class DataLoader implements ApplicationRunner {
     @Autowired
@@ -33,15 +30,25 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) {
-        Character jim = new Character("Jim", "Dwarf", "Male", "the mystery of Jim");
 
         Item stick = new Item("wooden Stick", "weapon", 5.0, 10.0, 1.0);
+        Item leatherShirt = new Item("leather Shirt", "armour",5.0,10.0,1.0);
         Item potion = new Item("health Pot","hp_potion",10.0,5.0,2.0);
         itemRepository.save(stick);
         itemRepository.save(potion);
-        jim.addItem(stick);
-        jim.addItem(potion);
-        jim.equipWeapon(stick);
+        itemRepository.save(leatherShirt);
+
+
+        Character jim = new Character("Jim", "Dwarf", "Male", "the mystery of Jim");
+        characterRepository.save(jim);
+        potion.setCharacter(jim);
+        stick.setCharacter(jim);
+        leatherShirt.setCharacter(jim);
+        itemRepository.save(potion);
+        itemRepository.save(stick);
+        itemRepository.save(leatherShirt);
+        jim.setWeapon(stick);
+        jim.setArmour(leatherShirt);
         characterRepository.save(jim);
 
 
