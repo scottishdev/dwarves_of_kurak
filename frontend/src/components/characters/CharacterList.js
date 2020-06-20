@@ -12,7 +12,6 @@ const CharacterList = (props) =>{
       <li key={index}>
         <div>
           <Character character={character} />
-          <p>character List</p>
         </div>
       </li>
     )
