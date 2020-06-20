@@ -28,9 +28,9 @@ public class Character {
     @Column(name = "backStory")
     private String backStory;
 
-//    change to item once we put it
-    @Column(name = "weapon")
-    private String weapon;
+    @OneToOne
+    @JoinColumn(name = "weapon", referencedColumnName="id")
+    private Item weapon;
 
     @Column(name = "armour")
     private String armour;
@@ -128,11 +128,11 @@ public class Character {
         this.backStory = backStory;
     }
 
-    public String getWeapon() {
+    public Item getWeapon() {
         return weapon;
     }
 
-    public void setWeapon(String weapon) {
+    public void setWeapon(Item weapon) {
         this.weapon = weapon;
     }
 
