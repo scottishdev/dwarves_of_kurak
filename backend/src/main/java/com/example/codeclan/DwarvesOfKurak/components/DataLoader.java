@@ -63,7 +63,7 @@ public class DataLoader implements ApplicationRunner {
         Job mage = new Job("Mage", 0, 5);
         jobRepository.save(mage);
 
-        // Fireball, Ice Shard, Heal - Work on this first.
+        // Skills
         Skill fart = new Skill("fart", "gas", "poison", 5);
         skillRepository.save(fart);
         Skill fireBall = new Skill("Fire Ball", "fire", null, 10);
@@ -99,10 +99,16 @@ public class DataLoader implements ApplicationRunner {
 
         // Test Logic
         healthPotion.setCharacter(jim); //adds character name to character variable in items. Hence populating chars inventory.
+        itemRepository.save(healthPotion);
         stick.setCharacter(jim);
+        itemRepository.save(stick);
         leatherShirt.setCharacter(jim);
+        itemRepository.save(leatherShirt);
+
         jim.setWeapon(stick);  //Equips item to character.
         jim.setArmour(leatherShirt);
+        characterRepository.save(jim);
+
 
 
 
