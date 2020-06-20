@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -47,8 +48,7 @@ public class Character {
     private int intelligence;
 
     @JsonBackReference
-    @OneToMany
-    @JoinColumn(name = "item")
+    @OneToMany(mappedBy = "character", fetch = FetchType.LAZY)
     private List<Item> inventory;
 
     @ManyToMany
@@ -85,7 +85,7 @@ public class Character {
         this.manaPoints = 50;
         this.strength = 5;
         this.intelligence = 5;
-//        this.inventory = new ArrayList<Item>();
+        this.inventory = new ArrayList<Item>();
 //        this.skills = new ArrayList<Skill>();
         this.coinPurse = 1000;
 //        this.job = job;
@@ -93,6 +93,14 @@ public class Character {
 
     public Character(){
 
+    }
+
+    public List<Item> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(List<Item> inventory) {
+        this.inventory = inventory;
     }
 
     public String getName() {

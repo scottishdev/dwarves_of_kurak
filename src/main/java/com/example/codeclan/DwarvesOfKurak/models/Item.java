@@ -4,7 +4,7 @@ package com.example.codeclan.DwarvesOfKurak.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Item")
+@Table(name = "items")
 public class Item {
 
     @Id
@@ -26,16 +26,29 @@ public class Item {
     @Column
     private Double sellCost;
 
+    @ManyToOne
+    @JoinColumn(name = "character_id")
+    private Character character;
+
     public Item(String name, String type, Double itemStrength, Double buyCost, Double sellCost) {
         this.name = name;
         this.type = type;
         this.itemStrength = itemStrength;
         this.buyCost = buyCost;
         this.sellCost = sellCost;
+        this.character = null;
     }
 
     public Item (){
 
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 
     public Long getId() {
