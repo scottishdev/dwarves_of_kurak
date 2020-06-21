@@ -53,12 +53,11 @@ class CharacterForm extends Component{
         required
         />
 
-        <input type="text"
-        placeholder="race"
-        value={this.state.race}
-        onChange={this.handleRaceChange}
-        required
-        />
+            <label htmlFor="race">Choose a Race:</label>
+            <select id="race" name="race" value={this.state.name} onChange={this.handleRaceChange}>
+              <option value="Dwarf">Dwarf</option>
+              <option value="Human">Human</option>
+            </select>
 
         <input type="submit" value="Save"/>
       </form>
