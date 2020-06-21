@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import CharacterList from '../components/characters/CharacterList';
-import Request from '../helpers/request.js';
+import Request from '../helpers/request';
 
 class CharacterContainer extends Component{
   constructor(props){

@@ -1,13 +1,13 @@
 import React, { Component} from 'react';
-import GameContainer from './containers/GameContainer';
 import './App.css';
+import MainContainer from './containers/MainContainer';
 
 class App extends Component {
   render(){
   return (
-    <div>
-    <h1>App start</h1>
-    <GameContainer />
+    <div className="whole_game_wrapper">
+    <h1 clasName="game_title">The Annals:Dwarves Of dark Kurak</h1>
+    <MainContainer />
     </div>
   );
   }
