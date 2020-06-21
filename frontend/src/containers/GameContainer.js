@@ -4,6 +4,7 @@ import MonsterContainer from './MonsterContainer.js';
 import ItemContainer from './ItemContainer.js';
 import SkillContainer from './SkillContainer.js';
 import JobContainer from './JobContainer.js';
+import CharacterCreationContainer from './CharacterCreationContainer.js';
 
 
 class GameContainer extends Component{
@@ -13,6 +14,8 @@ class GameContainer extends Component{
 render(){
   return (
     <div>
+    <h2>Creation</h2>
+    <CharacterCreationContainer/>
     <h2>Character Stuff</h2>
     <CharacterContainer/>
     <h2>Monster Stuff</h2>
