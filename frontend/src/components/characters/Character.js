@@ -1,11 +1,23 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 
 
-const Character = (character) => {
+const Character = ({character}) => {
+
+  if(!character){
+    return "no gas..."
+  }
   return (
-    // <p>{character.name}</p>
-    <p>Character stuff goes here</p>
+    <Fragment>
+      <h2>Name:{character.name}</h2>
+      <p>BackStory:{character.backStory}</p>
+      <p>Race:{character.race}</p>
+      <p>Coins:{character.coinPurse}</p>
+      <p>HP:{character.hitPoints}</p>
+      <p>Intelligence:{character.intelligence}</p>
+      <p>Strength:{character.strength}</p>
+      <p>MP:{character.manaPoints}</p>
+    </Fragment>
   )
 
 }

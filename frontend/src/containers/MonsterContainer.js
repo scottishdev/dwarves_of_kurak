@@ -1,22 +1,22 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Character from '../components/characters/Character';
-import CharacterList from '../components/characters/CharacterList';
+import Monster from '../components/monsters/Monster';
+import MonsterList from '../components/monsters/MonsterList';
 import Request from '../helpers/request.js';
 
-class CharacterContainer extends Component{
+class MonsterContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      characters: []
+      monsters: []
     }
   }
 
   componentDidMount(){
     const request = new Request();
 
-    request.get('/api/characters')
-    .then(data => this.setState({characters: data}))
+    request.get('/api/monsters')
+    .then(data => this.setState({monsters: data}))
 
   }
 
@@ -26,7 +26,7 @@ class CharacterContainer extends Component{
         <Fragment>
           <Switch>
             <Route render={(props) => {
-              return <CharacterList characters={this.state.characters}/>
+              return <MonsterList monsters={this.state.monsters}/>
             }}/>
           </Switch>
         </Fragment>
@@ -37,4 +37,4 @@ class CharacterContainer extends Component{
 
 }
 
-export default CharacterContainer;
+export default MonsterContainer;
