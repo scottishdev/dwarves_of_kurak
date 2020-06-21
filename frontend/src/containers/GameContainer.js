@@ -5,7 +5,6 @@ import ItemContainer from './ItemContainer.js';
 import SkillContainer from './SkillContainer.js';
 import JobContainer from './JobContainer.js';
 
-
 class GameContainer extends Component{
 
 
@@ -13,14 +12,6 @@ class GameContainer extends Component{
 render(){
   return (
     <div>
-
-    <h1>Dwarves Of Kurak</h1>
-
-    <h2>Select Game Mode</h2>
-
-
-
-    //Johns Stuff below
     <h1>Character Stuff</h1>
     <CharacterContainer/>
     <h2>Monster Stuff</h2>

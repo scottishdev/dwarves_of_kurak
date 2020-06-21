@@ -1,23 +1,21 @@
 import React, {Component, Fragment} from 'react';
-
-class StartContainer extends Component{
-  constructor(props){
-    super(props);
-  }
+import {Link} from 'react-router-dom';
 
 
+const StartContainer = (props) => {
 
-render(){
   return (
     <Fragment>
+
     <h1>Dwarves Of Kurak</h1>
     <p>Select Game Mode: </p>
-    <button>Single Fight</button>
+    <button><Link to="/party-select" onClick={props.onClickGameModeHandler(1)}>Single Fight</Link></button>
     <button>Single Level</button>
     <button>Campaign Mode</button>
     </Fragment>
   )
-}
+
+
 
 }
 export default StartContainer;
