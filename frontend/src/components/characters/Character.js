@@ -9,9 +9,14 @@ const Character = ({character}) => {
   }
   return (
     <Fragment>
-      <p>{character.name}</p>
-      <p>{character.backStory}</p>
-      <p>{character.race}</p>
+      <p>Name:{character.name}</p>
+      <p>BackStory:{character.backStory}</p>
+      <p>Race:{character.race}</p>
+      <p>Coins:{character.coinPurse}</p>
+      <p>HP:{character.hitPoints}</p>
+      <p>Intelligence:{character.intelligence}</p>
+      <p>Strength:{character.strength}</p>
+      <p>MP:{character.manaPoints}</p>
     </Fragment>
   )
 
