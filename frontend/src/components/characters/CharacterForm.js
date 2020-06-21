@@ -5,29 +5,61 @@ class CharacterForm extends Component{
   constructor(props){
     super(props);
     this.state={
-      name: ""
+      name: "",
+      race: ""
     }
+    this.handleNameChange = this.handleNameChange.bind(this)
+    this.handleRaceChange = this.handleRaceChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleNameChange(event){
+    this.setState({name: event.target.value})
+  }
+
+  handleRaceChange(event){
+    this.setState({race: event.target.value})
+  }
+
+  handleSubmit(event){
+    event.preventDefault();
+    const name = this.state.name.trim();
+    const race = this.state.race;
+    if(!name || !race){
+      return
+    }
+
+    const newCharacter ={
+      name: name,
+      race: race
+    }
+
+    this.props.onCharacterSubmit(newCharacter);
+
+    this.setState({
+      name: "",
+      race: ""
+    })
   }
 
 
   render(){
     return(
-      <form className="character-form">
+      <form className="character-form" onSubmit={this.handleSubmit}>
         <input type="text"
         placeholder="Name"
+        value={this.state.name}
+        onChange={this.handleNameChange}
         required
         />
-            <label for="race">Choose a Race:</label>
-            <select id="race" name="race">
-              <option value="Dwarf">Dwarf</option>
-              <option value="Human">Human</option>
-            </select>
 
-            <label for="job">Choose a Job:</label>
-            <select id="job" name="job">
-              <option value="job1">job1</option>
-              <option value="job2">job2</option>
-            </select>
+        <input type="text"
+        placeholder="race"
+        value={this.state.race}
+        onChange={this.handleRaceChange}
+        required
+        />
+
         <input type="submit" value="Save"/>
       </form>
     )

@@ -10,6 +10,7 @@ class CharacterContainer extends Component{
     this.state = {
       characters: []
     }
+    this.handleCreationSubmit = this.handleCreationSubmit.bind(this);
   }
 
   componentDidMount(){
@@ -17,17 +18,27 @@ class CharacterContainer extends Component{
 
     request.get('/api/characters')
     .then(data => this.setState({characters: data}))
+  }
 
+  handleCreationSubmit(newCharacter){
+    newCharacter.id = Date.now()
+    const updatedCharacters = [...this.state.characters, newCharacter]
+    this.setState({
+      characters: updatedCharacters
+    })
   }
 
   render(){
     return(
       <Router>
         <Fragment>
-          <Switch>
+          <Switch><div>
+          <h4>Create Character</h4>
+          <CharacterForm onCharacterSubmit={this.handleCreationSubmit}/>
             <Route render={(props) => {
               return <CharacterList characters={this.state.characters}/>
             }}/>
+            </div>
           </Switch>
         </Fragment>
       </Router>
