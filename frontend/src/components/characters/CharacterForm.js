@@ -59,6 +59,7 @@ class CharacterForm extends Component{
               <option value="Human">Human</option>
             </select>
 
+
         <input type="submit" value="Save"/>
       </form>
     )
