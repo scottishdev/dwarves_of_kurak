@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import Character from '../components/characters/Character.js';
 import CharacterContainer from './CharacterContainer.js';
-import Monster from '../components/monsters/Monster.js';
 import MonsterContainer from './MonsterContainer.js';
-import {BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-router-dom';
-
+import ItemContainer from './ItemContainer.js';
+import SkillContainer from './SkillContainer.js';
+import JobContainer from './JobContainer.js';
 
 
 class GameContainer extends Component{
-  constructor(props){
-    super(props);
-  }
 
 
 
@@ -29,6 +25,12 @@ render(){
     <CharacterContainer/>
     <h2>Monster Stuff</h2>
     <MonsterContainer/>
+    <h2>Item Stuff</h2>
+    <ItemContainer/>
+    <h2>Skill Stuff</h2>
+    <SkillContainer/>
+    <h2>Job Skills</h2>
+    <JobContainer/>
     </div>
   )
 }

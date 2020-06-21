@@ -1,21 +1,22 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import CharacterList from '../components/characters/CharacterList';
+import JobList from '../components/jobs/JobList';
+
 import Request from '../helpers/request.js';
 
-class CharacterContainer extends Component{
+class JobContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      characters: []
+      jobs: null
     }
   }
 
   componentDidMount(){
     const request = new Request();
 
-    request.get('/api/characters')
-    .then(data => this.setState({characters: data}))
+    request.get('/api/jobs')
+    .then(data => this.setState({jobs: data}))
 
   }
 
@@ -25,7 +26,7 @@ class CharacterContainer extends Component{
         <Fragment>
           <Switch>
             <Route render={(props) => {
-              return <CharacterList characters={this.state.characters}/>
+              return <JobList jobs={this.state.jobs}/>
             }}/>
           </Switch>
         </Fragment>
@@ -36,4 +37,4 @@ class CharacterContainer extends Component{
 
 }
 
-export default CharacterContainer;
+export default JobContainer;

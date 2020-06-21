@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Monster from '../components/monsters/Monster';
 import MonsterList from '../components/monsters/MonsterList';
 import Request from '../helpers/request.js';
 
