@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import Character from '../components/characters/Character.js';
 import CharacterContainer from './CharacterContainer.js';
-import Monster from '../components/monsters/Monster.js';
 import MonsterContainer from './MonsterContainer.js';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import ItemContainer from './ItemContainer.js';
 
 
 class GameContainer extends Component{
@@ -16,10 +14,12 @@ class GameContainer extends Component{
 render(){
   return (
     <div>
-    <h1>Character Stuff</h1>
+    <h2>Character Stuff</h2>
     <CharacterContainer/>
     <h2>Monster Stuff</h2>
     <MonsterContainer/>
+    <h2>Item Stuff</h2>
+    <ItemContainer/>
     </div>
   )
 }
