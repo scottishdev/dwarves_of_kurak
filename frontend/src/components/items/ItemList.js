@@ -3,15 +3,15 @@ import Item from './Item.js';
 
 const ItemList = (props) =>{
 
-  if( props.items.length ===0){
+  if( !props.items){
     return ("Releasing Gas.....")
   }
 
   const allItems = props.items.map((item, index) => {
     return(
 
-        <div>
-          <Item item={item} />
+        <div key={index}>
+          <Item  item={item} />
         </div>
 
     )

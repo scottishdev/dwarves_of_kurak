@@ -6,9 +6,6 @@ import SkillContainer from './SkillContainer.js';
 
 
 class GameContainer extends Component{
-  constructor(props){
-    super(props);
-  }
 
 
 

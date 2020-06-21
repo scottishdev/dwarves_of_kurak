@@ -8,7 +8,7 @@ class ItemContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      items: []
+      items: null
     }
   }
 
