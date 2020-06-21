@@ -1,21 +1,21 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import MonsterList from '../components/monsters/MonsterList';
-import Request from '../helpers/request.js';
+import SkillList from '../components/skills/SkillList';
+import Request from '../helpers/request';
 
-class MonsterContainer extends Component{
+class SkillContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      monsters: []
+      skills: []
     }
   }
 
   componentDidMount(){
     const request = new Request();
 
-    request.get('/api/monsters')
-    .then(data => this.setState({monsters: data}))
+    request.get('/api/skills')
+    .then(data => this.setState({skills: data}))
 
   }
 
@@ -25,7 +25,7 @@ class MonsterContainer extends Component{
         <Fragment>
           <Switch>
             <Route render={(props) => {
-              return <MonsterList monsters={this.state.monsters}/>
+              return <SkillList skills={this.state.skills}/>
             }}/>
           </Switch>
         </Fragment>
@@ -36,4 +36,4 @@ class MonsterContainer extends Component{
 
 }
 
-export default MonsterContainer;
+export default SkillContainer;
