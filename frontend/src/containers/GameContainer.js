@@ -3,12 +3,10 @@ import CharacterContainer from './CharacterContainer.js';
 import MonsterContainer from './MonsterContainer.js';
 import ItemContainer from './ItemContainer.js';
 import SkillContainer from './SkillContainer.js';
+import JobContainer from './JobContainer.js';
 
 
 class GameContainer extends Component{
-  constructor(props){
-    super(props);
-  }
 
 
 
@@ -23,6 +21,8 @@ render(){
     <ItemContainer/>
     <h2>Skill Stuff</h2>
     <SkillContainer/>
+    <h2>Job Skills</h2>
+    <JobContainer/>
     </div>
   )
 }

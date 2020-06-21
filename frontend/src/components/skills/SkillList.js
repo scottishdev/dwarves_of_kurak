@@ -10,7 +10,7 @@ const SkillList = (props) =>{
   const allSkills = props.skills.map((skill, index) => {
     return(
 
-        <div>
+        <div key={index}>
           <Skill skill={skill} />
         </div>
 
