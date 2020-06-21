@@ -9,7 +9,12 @@ const Monster = ({monster}) => {
   }
   return (
     <Fragment>
-      <p>Name:{monster.name}</p>
+      <h3>Name:{monster.name}</h3>
+      <p>Race:{monster.race}</p>
+      <p>HP:{monster.hitPoints}</p>
+      <p>MP:{monster.manaPoints}</p>
+      <p>Strength:{monster.strength}</p>
+      <p>Intelligence:{monster.intelligence}</p>
     </Fragment>
   )
 

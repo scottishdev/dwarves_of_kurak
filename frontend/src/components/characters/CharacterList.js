@@ -9,11 +9,11 @@ const CharacterList = (props) =>{
 
   const allCharacters = props.characters.map((character, index) => {
     return(
-      <li key={index}>
+
         <div>
           <Character character={character} />
         </div>
-      </li>
+      
     )
   })
 

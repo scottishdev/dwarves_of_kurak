@@ -9,11 +9,11 @@ const MonsterList = (props) =>{
 
   const allMonsters = props.monsters.map((monster, index) => {
     return(
-      <li key={index}>
+      
         <div>
           <Monster monster={monster} />
         </div>
-      </li>
+
     )
   })
 
