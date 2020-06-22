@@ -29,9 +29,9 @@ const PartySelectContainer = (props)=>{
                     <h3>Party Setup</h3>
                 </div>
                 <div className="party_character_boxes">
-                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterOne}  onHandleChange={handlePartyChangeOne}/>
-                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterTwo}  onHandleChange={handlePartyChangeTwo} />
-                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterThree} onHandleChange={handlePartyChangeThree}/>
+                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterOne} key={1}  onHandleChange={handlePartyChangeOne}/>
+                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterTwo} key={2}   onHandleChange={handlePartyChangeTwo} />
+                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterThree} key={3}  onHandleChange={handlePartyChangeThree}/>
                 </div>
             </div>
         )

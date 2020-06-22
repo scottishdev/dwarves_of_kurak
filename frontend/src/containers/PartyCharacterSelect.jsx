@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PartyScreenContainer = (props) => {
+const PartyCharacterSelect = (props) => {
 
     if(!props.characters) return null
         
@@ -30,4 +30,4 @@ const PartyScreenContainer = (props) => {
         )
     }
 }
-export default PartyScreenContainer;
+export default PartyCharacterSelect;
