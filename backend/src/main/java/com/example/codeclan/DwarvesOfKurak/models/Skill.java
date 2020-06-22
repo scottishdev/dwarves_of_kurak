@@ -49,7 +49,7 @@ public class Skill {
         this.type = type;
         this.sideEffect = sideEffect;
         this.damage = damage;
-        this.characters = new ArrayList<Character>();
+        this.characters = null;
     }
 
     public Skill(){
