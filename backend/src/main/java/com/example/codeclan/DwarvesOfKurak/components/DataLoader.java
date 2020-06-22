@@ -108,17 +108,15 @@ public class DataLoader implements ApplicationRunner {
         jim.setWeapon(stick);  //Equips item to character.
         jim.setArmour(leatherShirt);
         jim.addSkill(fart);
-        warrior.setCharacter(jim);
+       jim.setJob(warrior);
         characterRepository.save(jim);
-        jobRepository.save(warrior);
 
-        cleric.setCharacter(brunor);
-        jobRepository.save(cleric);
+        brunor.setJob(cleric);
+        characterRepository.save(brunor);
 
-        bum.setCharacter(dumas);
+        dumas.setJob(bum);
         dumas.addSkill(iceShard);
         characterRepository.save(dumas);
-        jobRepository.save(bum);
 
     }
 
