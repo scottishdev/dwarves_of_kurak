@@ -3,35 +3,39 @@ import PartyCharacterSelect from './PartyCharacterSelect';
 
 const PartySelectContainer = (props)=>{
 
-    const [selectedCharacterOne,setSelectedCharacterOne] = useState();
-    const [selectedCharacterTwo,setSelectedCharacterTwo] = useState();
-    const [selectedCharacterThree,setSelectedCharacterThree] = useState();
-
-    function handlePartyChangeOne(id){
+    const [selChar,setSelChar] = useState({party:[],loopcount:[0,1,2]});
+    const i = [0,1,2]
+    
+    function handlePartyChange(id,index){
+        console.log("change party member " + id);
         const character = props.characterAssets.find(character=>character.id == id);
-        setSelectedCharacterOne(character)
-        }
-
-    function handlePartyChangeTwo(id){
-        const character = props.characterAssets.find(char=>char.id == id)
-        setSelectedCharacterTwo(character)
+        const party = selChar.party
+        party[index] = character
+        setSelChar({party:party})
     }
 
-    function handlePartyChangeThree(id){
-        const character = props.characterAssets.find(char=>char.id == id)
-        setSelectedCharacterThree(character)
-    }
+    const partySelectorComponents = i.map(index=>{
+            return (
+                <PartyCharacterSelect 
+                    characters={props.characterAssets}
+                    character={selChar.party[index]}
+                    key={index}
+                    onHandleChange={char_id=>handlePartyChange(char_id,index)}
+                 />
+            )
+          
+        })
 
-    if(!selectedCharacterOne||!selectedCharacterTwo||!selectedCharacterThree){
+    if(selChar.party.length<3){
         return (
             <div className="party_setup">
+                {console.log("rendering partySelect Container")}
+                
                 <div className="page_heading">
                     <h3>Party Setup</h3>
                 </div>
                 <div className="party_character_boxes">
-                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterOne} key={1}  onHandleChange={handlePartyChangeOne}/>
-                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterTwo} key={2}   onHandleChange={handlePartyChangeTwo} />
-                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterThree} key={3}  onHandleChange={handlePartyChangeThree}/>
+                    {partySelectorComponents}
                 </div>
             </div>
         )
