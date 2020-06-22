@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PartyCharacterSelect from './PartyCharacterSelect';
 import Request from '../helpers/request';
 class PartySelectContainer extends Component {
-    
+
     constructor(props){
         super(props)
         this.state = {
@@ -20,24 +20,24 @@ class PartySelectContainer extends Component {
         const char = this.state.characters.find(character=>character.id == id);
             this.setState({selectedCharacterOne:char})
         }
-        
+
     handlePartyChangeTwo(id){
         const character = this.state.characters.find(char=>char.id == id)
             this.setState({selectedCharacterTwo:character})
     }
-          
+
     handlePartyChangeThree(id){
         const character = this.state.characters.find(char=>char.id == id)
             this.setState({selectedCharacterThree:character})
     }
-    
+
     componentDidMount() {
         const request = new Request();
 
         request.get('characters')
         .then(data => this.setState({characters:data}))
     }
-    
+
 
     render(){
         if(!this.state.selectedCharacterOne||!this.state.selectedCharacterTwo||!this.state.selectedCharacterThree){
