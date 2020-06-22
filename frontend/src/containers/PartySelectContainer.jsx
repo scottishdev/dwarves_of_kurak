@@ -10,7 +10,6 @@ class PartySelectContainer extends Component {
             selectedCharacterOne:null,
             selectedCharacterTwo:null,
             selectedCharacterThree:null,
-            key:[1,2,3]
         }
         this.handlePartyChangeOne = this.handlePartyChangeOne.bind(this);
         this.handlePartyChangeTwo = this.handlePartyChangeTwo.bind(this);
@@ -48,9 +47,9 @@ class PartySelectContainer extends Component {
                     <h3>Party Setup</h3>
                 </div>
                 <div className="party_character_boxes">
-                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterOne} key={this.state.key[0]} onHandleChange={this.handlePartyChangeOne}/>
-                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterTwo} key={this.state.key[1]} onHandleChange={this.handlePartyChangeTwo} />
-                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterThree} key={this.state.key[2]} onHandleChange={this.handlePartyChangeThree}/>
+                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterOne}  onHandleChange={this.handlePartyChangeOne}/>
+                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterTwo}  onHandleChange={this.handlePartyChangeTwo} />
+                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterThree} onHandleChange={this.handlePartyChangeThree}/>
                 </div>
             </div>
             )

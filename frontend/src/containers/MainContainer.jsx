@@ -50,7 +50,7 @@ render() {
     } else{
         return (
         <div className="game_selector">
-            <PartySelectContainer />
+            <PartySelectContainer characterAssets={this.state.characterAssets} />
         </div>)
     }
   }
