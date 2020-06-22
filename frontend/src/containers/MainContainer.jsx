@@ -35,7 +35,7 @@ class MainContainer extends Component {
     .then(data=> this.setState({skillAssets:data}))
 
     request.get('jobs')
-    .then(data=> this.setSate({jobAssets:data}))
+    .then(data=> this.setState({jobAssets:data}))
 }
 
 render() {
