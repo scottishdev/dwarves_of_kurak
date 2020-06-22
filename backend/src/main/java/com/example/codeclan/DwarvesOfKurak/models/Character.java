@@ -191,4 +191,8 @@ public class Character {
     public void setCoinPurse(int coinPurse) {
         this.coinPurse = coinPurse;
     }
+
+    public Long getId() {
+        return id;
+    }
 }

@@ -10,10 +10,10 @@ const CharacterList = (props) =>{
   const allCharacters = props.characters.map((character, index) => {
     return(
 
-        <div>
+        <div key={index}>
           <Character character={character} />
         </div>
-      
+
     )
   })
 

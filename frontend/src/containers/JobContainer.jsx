@@ -1,22 +1,22 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Monster from '../components/monsters/Monster';
-import MonsterList from '../components/monsters/MonsterList';
+import JobList from '../components/jobs/JobList';
+
 import Request from '../helpers/request.js';
 
-class MonsterContainer extends Component{
+class JobContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      monsters: []
+      jobs: null
     }
   }
 
   componentDidMount(){
     const request = new Request();
 
-    request.get('/api/monsters')
-    .then(data => this.setState({monsters: data}))
+    request.get('/api/jobs')
+    .then(data => this.setState({jobs: data}))
 
   }
 
@@ -26,7 +26,7 @@ class MonsterContainer extends Component{
         <Fragment>
           <Switch>
             <Route render={(props) => {
-              return <MonsterList monsters={this.state.monsters}/>
+              return <JobList jobs={this.state.jobs}/>
             }}/>
           </Switch>
         </Fragment>
@@ -37,4 +37,4 @@ class MonsterContainer extends Component{
 
 }
 
-export default MonsterContainer;
+export default JobContainer;
