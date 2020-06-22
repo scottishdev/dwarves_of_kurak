@@ -31,7 +31,13 @@ class CharacterForm extends Component{
 
     const newCharacter ={
       name: name,
-      race: race
+      race: race,
+      backStory: "A New Beginning",
+      hitPoints: 100,
+      manaPoints: 50,
+      strength: 5,
+      intelligence: 5,
+      coinPurse: 1000
     }
 
     this.props.onCharacterSubmit(newCharacter);
@@ -54,8 +60,8 @@ class CharacterForm extends Component{
         required
         />
 
-        <label htmlFor="race">Choose a Race:</label>
-        <select id="race" name="race" value={this.state.name} onChange={this.handleRaceChange}>
+        <select id="race" name="race" value={this.state.race} onChange={this.handleRaceChange}>
+
           <option value="Dwarf">Dwarf</option>
           <option value="Human">Human</option>
         </select>
