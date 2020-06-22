@@ -1,3 +1,12 @@
+#root{
+    width:800px;
+    height:600px;
+    background-color:skyblue;
+}
+div{
+    border:solid;
+    border-width:thin;
+}
 .App {
   text-align: center;
   
@@ -13,17 +22,40 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-div{
-    border:solid;
-}
+
 .whole_game_wrapper{
     display:flex;
     flex-direction:column;
     align-items:center;
-    width:800px;
-    height:600px;
+    width:inherit;
+    height:inherit;
 }
 .game_title{
+    color:red;
+}
+.party_setup{
+    width:inherit;
+    height:inherit;
+}
+.page_heading{
+    height:70px;
+    width:inherit;
+    display:flex;
+    justify-content:center;
+}
+.party_character_boxes{
+    display:flex;
+    align-content:flex-start;
+    flex-wrap:wrap;
+    
+    width:inherit;
+    height:530px;
+    
+}
+.party_character_select_box{
+    width:350px;
+    height:160px;
+    margin:20px;
 }
 .game_start_options{
     

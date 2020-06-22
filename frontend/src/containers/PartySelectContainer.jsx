@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PartyCharacterSelect from './PartyCharacterSelect';
-import request from '../helpers/request';
+import Request from '../helpers/request';
 class PartySelectContainer extends Component {
     
     constructor(props){
@@ -14,17 +14,24 @@ class PartySelectContainer extends Component {
       }
     
   componentDidMount() {
+    const request = new Request();
+
     request.get('/characters')
     .then(data => this.setState({characters:data}))
   }
 
 render(){
       return (
-        <div>
-            PartySetup
-            <PartyCharacterSelect characters={this.characters}/>
+        <div className="party_setup">
+            <div className="page_heading">
+                <h3>Party Setup</h3>
+            </div>
+            <div className="party_character_boxes">
             <PartyCharacterSelect characters={this.characters} />
             <PartyCharacterSelect characters={this.characters} />
+            <PartyCharacterSelect characters={this.characters} />
+            
+            </div>
         </div>
     )
       }
