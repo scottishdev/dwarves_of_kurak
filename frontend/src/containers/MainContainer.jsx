@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PartySelectContainer from './PartySelectContainer';
 import Request from '../helpers/request';
+import StartContainer from './StartContainer';
 
 class MainContainer extends Component {
 
@@ -14,52 +15,53 @@ class MainContainer extends Component {
             characterAssets: null,
             itemAssets: null,
             skillAssets: null,
-            jobassets:null
+            jobAssets:null,
+            monsterAssets:null
         }
-    this.clickHandler = this.clickHandler.bind(this);
+    this.startClickHandler = this.startClickHandler.bind(this);
     this.setParty = this.setParty.bind(this);
     }
 
-  clickHandler(gameMode) {
-    this.setState({gameMode:gameMode})
-  }
-
-  setParty(event){
-      this.setState({party:event})
-  }
-
-  componentDidMount() {
-    const request = new Request();
-
-    request.get('characters')
-    .then(data => this.setState({characterAssets:data}))
-
-    request.get('items')
-    .then(data => this.setState({itemAssets:data}))
-
-    request.get('skills')
-    .then(data=> this.setState({skillAssets:data}))
-
-    request.get('jobs')
-    .then(data=> this.setState({jobAssets:data}))
-}
-
-render() {
-
-    if(this.state.gameMode == null){
-    return (
-        <div className="game_selector">
-            <button className="game_start_options" onClick={()=>this.clickHandler(1)}>Fight</button>
-            <button className="game_start_options" onClick={()=>this.clickHandler(2)}>Consecutive Fight</button>
-            <button className="game_start_options" onClick={()=>this.clickHandler(3)}>Dungeon Crawler</button>
-        </div>)
-    } else{
-        return (
-        <div className="game_selector">
-            <PartySelectContainer characterAssets={this.state.characterAssets} setPartyHandler={this.setParty}/>
-        </div>)
+    startClickHandler(gameMode) {
+        console.log("setting game mode to: "+ gameMode);
+        this.setState({gameMode:gameMode})
     }
-  }
+
+    setParty(event){
+        console.log("setting Party members");
+        this.setState({party:event})
+    }
+
+    componentDidMount() {
+        const request = new Request();
+
+        request.get('characters')
+        .then(data => this.setState({characterAssets:data}))
+
+        request.get('items')
+        .then(data => this.setState({itemAssets:data}))
+
+        request.get('skills')
+        .then(data=> this.setState({skillAssets:data}))
+
+        request.get('jobs')
+        .then(data=> this.setState({jobAssets:data}))
+
+        request.get('monsters')
+        .then(data=> this.setState({monsterAssets:data}))
+    }
+
+    render() {
+
+        if(this.state.gameMode == null){
+            return (<StartContainer  onClickHandler={this.startClickHandler}/>)
+            }   else{
+                return (
+                <div className="game_selector">
+                    <PartySelectContainer characterAssets={this.state.characterAssets} setPartyHandler={this.setParty}/>
+                </div>)
+        }
+    }
 
 }
 
