@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PartySelectContainer from './PartySelectContainer';
+import Request from '../helpers/request';
 
 class MainContainer extends Component {
 
@@ -7,11 +8,12 @@ class MainContainer extends Component {
         super(props);
 
         this.state = {
-        gameMode: null,
-        party:null,
-        characterAssets: null,
-        itemAssets: null,
-        skillAssets: null
+            gameMode: null,
+            party:null,
+            characterAssets: null,
+            itemAssets: null,
+            skillAssets: null,
+            jobassets:null
         }
     this.clickHandler = this.clickHandler.bind(this);
     }
@@ -20,6 +22,21 @@ class MainContainer extends Component {
     this.setState({gameMode:gameMode})
   }
 
+  componentDidMount() {
+    const request = new Request();
+
+    request.get('characters')
+    .then(data => this.setState({characterAssets:data}))
+
+    request.get('items')
+    .then(data => this.setState({itemAssets:data}))
+
+    request.get('skills')
+    .then(data=> this.setState({skillAssets:data}))
+
+    request.get('jobs')
+    .then(data=> this.setState({jobAssets:data}))
+}
 
 render() {
 
