@@ -40,6 +40,7 @@ class CharacterForm extends Component{
       name: "",
       race: ""
     })
+
   }
 
 
@@ -53,11 +54,11 @@ class CharacterForm extends Component{
         required
         />
 
-            <label htmlFor="race">Choose a Race:</label>
-            <select id="race" name="race" value={this.state.name} onChange={this.handleRaceChange}>
-              <option value="Dwarf">Dwarf</option>
-              <option value="Human">Human</option>
-            </select>
+        <label htmlFor="race">Choose a Race:</label>
+        <select id="race" name="race" value={this.state.name} onChange={this.handleRaceChange}>
+          <option value="Dwarf">Dwarf</option>
+          <option value="Human">Human</option>
+        </select>
 
 
         <input type="submit" value="Save"/>
