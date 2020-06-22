@@ -2,8 +2,6 @@ const baseURL = 'http://localhost:3000/api/'
 
 class Request {
 
-class Request {
-
     get(url){
         return fetch(baseURL + url)
         .then(res => res.json())
