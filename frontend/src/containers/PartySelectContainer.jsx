@@ -17,17 +17,17 @@ class PartySelectContainer extends Component {
       }
 
     handlePartyChangeOne(id){
-        const char = this.state.characters.find(character=>character.id === id);
+        const char = this.state.characters.find(character=>character.id == id);
             this.setState({selectedCharacterOne:char})
         }
 
     handlePartyChangeTwo(id){
-        const character = this.state.characters.find(char=>char.id === id)
+        const character = this.state.characters.find(char=>char.id == id)
             this.setState({selectedCharacterTwo:character})
     }
 
     handlePartyChangeThree(id){
-        const character = this.state.characters.find(char=>char.id === id)
+        const character = this.state.characters.find(char=>char.id == id)
             this.setState({selectedCharacterThree:character})
     }
 
