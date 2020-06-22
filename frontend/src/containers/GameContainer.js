@@ -6,7 +6,6 @@ import SkillContainer from './SkillContainer.js';
 import JobContainer from './JobContainer.js';
 
 
-
 class GameContainer extends Component{
 
 
