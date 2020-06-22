@@ -38,8 +38,18 @@ class CharacterContainer extends Component{
 
   render(){
     return(
-        <CharacterForm onCharacterSubmit={this.handleCreationSubmit}/>
-
+      <Router>
+         <Fragment>
+           <Switch><div>
+           <h4>Create Character</h4>
+           <CharacterForm onCharacterSubmit={this.handleCreationSubmit}/>
+             <Route render={(props) => {
+               return <CharacterList characters={this.state.characters}/>
+             }}/>
+             </div>
+           </Switch>
+         </Fragment>
+       </Router>
     )
   }
 

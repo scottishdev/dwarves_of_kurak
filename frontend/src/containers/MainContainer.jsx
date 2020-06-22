@@ -39,7 +39,7 @@ render() {
     } else{
         return (
         <div className="game_selector">
-            <CharacterContainer/>
+            <PartySelectContainer />
         </div>)
     }
   }
