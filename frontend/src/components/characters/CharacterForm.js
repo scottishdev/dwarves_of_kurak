@@ -31,7 +31,17 @@ class CharacterForm extends Component{
 
     const newCharacter ={
       name: name,
+<<<<<<< HEAD
       race: race
+=======
+      race: race,
+      backStory: "A New Beginning",
+      hitPoints: 100,
+      manaPoints: 50,
+      strength: 5,
+      intelligence: 5,
+      coinPurse: 1000
+>>>>>>> 28e18e15bddb4ac4f5d5bdbad259202f254133df
     }
 
     this.props.onCharacterSubmit(newCharacter);
@@ -40,6 +50,10 @@ class CharacterForm extends Component{
       name: "",
       race: ""
     })
+<<<<<<< HEAD
+=======
+
+>>>>>>> 28e18e15bddb4ac4f5d5bdbad259202f254133df
   }
 
 
@@ -53,11 +67,19 @@ class CharacterForm extends Component{
         required
         />
 
+<<<<<<< HEAD
             <label htmlFor="race">Choose a Race:</label>
             <select id="race" name="race" value={this.state.name} onChange={this.handleRaceChange}>
               <option value="Dwarf">Dwarf</option>
               <option value="Human">Human</option>
             </select>
+=======
+        <select id="race" name="race" value={this.state.race} onChange={this.handleRaceChange}>
+
+          <option value="Dwarf">Dwarf</option>
+          <option value="Human">Human</option>
+        </select>
+>>>>>>> 28e18e15bddb4ac4f5d5bdbad259202f254133df
 
 
         <input type="submit" value="Save"/>
