@@ -1,5 +1,7 @@
 package com.example.codeclan.DwarvesOfKurak.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -20,14 +22,30 @@ public class Job {
     @Column
     private int intelBonusStat;
 
+    @JsonIgnoreProperties(value="character")
+    @ManyToOne
+    @JoinColumn(name="job",referencedColumnName = "id")
+    private Character character;
+
+
     public Job(String name, int strengthBonusStat, int intelBonusStat) {
         this.name = name;
         this.strengthBonusStat = strengthBonusStat;
         this.intelBonusStat = intelBonusStat;
+        this.character = null;
     }
 
     public Job(){
 
+    }
+
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 
     public Long getId() {

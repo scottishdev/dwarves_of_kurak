@@ -63,6 +63,10 @@ public class Character {
     @OneToMany(mappedBy="character", fetch = FetchType.LAZY)
     private List<Item> items;
 
+    @JsonIgnoreProperties(value="character")
+    @OneToMany(mappedBy="character", fetch = FetchType.LAZY)
+    private List<Job> jobs;
+
 
     public Character(String name, String race, String gender, String backStory) {
         this.name = name;
@@ -77,6 +81,7 @@ public class Character {
         this.intelligence = 5;
         this.coinPurse = 1000;
         this.items = new ArrayList<>();
+        this.jobs = new ArrayList<>();
         this.skills = new ArrayList<>();
     }
 
@@ -182,6 +187,22 @@ public class Character {
 
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
+    }
+
+    public void addSkill(Skill skill){
+        this.skills.add(skill);
+    }
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> job) {
+        this.jobs = job;
+    }
+
+    public void addJob(Job job){
+        this.jobs.add(job);
     }
 
     public int getCoinPurse() {
