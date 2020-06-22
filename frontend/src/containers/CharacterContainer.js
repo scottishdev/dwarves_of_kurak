@@ -11,46 +11,45 @@ class CharacterContainer extends Component{
       characters: []
     }
     this.handleCreationSubmit = this.handleCreationSubmit.bind(this);
-    this.manualFetch = this.manualFetch.bind(this);
   }
 
   componentDidMount(){
     const request = new Request();
-        this.manualFetch();
-    }
+
+    request.get('/api/characters')
+    .then(data => this.setState({characters: data}))
+  }
 
   handleCreationSubmit(newCharacter){
-    
-    request.postUser(newCharacter)
-    .then(()=>{this.manualFetch})
+        return fetch('http://localhost:3000/api/characters',
+           {
+                method: 'POST',
+                body: JSON.stringify(newCharacter),
+                headers: { 'Content-Type': 'application/json' }
+           })
+           .then(res => res.json())
 
     newCharacter.id = Date.now()
     const updatedCharacters = [...this.state.characters, newCharacter]
     this.setState({
       characters: updatedCharacters
     })
-    
-  }
-
-  manualFetch(){
-    request.get('/characters')
-    .then(data => this.setState({characters: data}))
   }
 
   render(){
     return(
       <Router>
-        <Fragment>
-          <Switch><div>
-          <h4>Create Character</h4>
-          <CharacterForm onCharacterSubmit={this.handleCreationSubmit}/>
-            <Route render={(props) => {
-              return <CharacterList characters={this.state.characters}/>
-            }}/>
-            </div>
-          </Switch>
-        </Fragment>
-      </Router>
+         <Fragment>
+           <Switch><div>
+           <h4>Create Character</h4>
+           <CharacterForm onCharacterSubmit={this.handleCreationSubmit}/>
+             <Route render={(props) => {
+               return <CharacterList characters={this.state.characters}/>
+             }}/>
+             </div>
+           </Switch>
+         </Fragment>
+       </Router>
     )
   }
 

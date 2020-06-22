@@ -1,11 +1,12 @@
 import React from 'react';
 import {browserHistory, Redirect} from 'react-router-dom';
 import PartySelectContainer from './PartySelectContainer.jsx';
+import CharacterContainer from './CharacterContainer.js';
 
 const StartContainer = (props) => {
 
     function onNavigateFight(gameMode){
-        
+
         return <Redirect to="/party"/>
     }
 
