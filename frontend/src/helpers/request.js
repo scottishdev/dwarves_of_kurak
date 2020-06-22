@@ -1,8 +1,10 @@
-const baseURL = 'http://localhost:3000/api/'
+const baseURL = 'http://localhost:8080/api/'
 
 class Request {
 
     get(url){
+        console.log(baseURL+url);
+        
         return fetch(baseURL + url)
         .then(res => res.json())
     }
