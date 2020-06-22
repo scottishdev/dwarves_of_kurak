@@ -103,12 +103,16 @@ public class DataLoader implements ApplicationRunner {
         //Adding monsters + items to encounter
         Encounter encounter1 = new Encounter(100);
         encounterRepository.save(encounter1);
+
         zombie1.setEncounter(encounter1);
         monsterRepository.save(zombie1);
         zombie2.setEncounter(encounter1);
         monsterRepository.save(zombie2);
+
         sword.setEncounter(encounter1);
         itemRepository.save(sword);
+        chainMail.setEncounter(encounter1);
+        itemRepository.save(chainMail);
 
 
         // Test Logic
