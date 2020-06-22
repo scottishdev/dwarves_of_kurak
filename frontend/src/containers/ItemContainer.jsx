@@ -15,7 +15,7 @@ class ItemContainer extends Component{
   componentDidMount(){
     const request = new Request();
 
-    request.get('/api/items')
+    request.get('/items')
     .then(data => this.setState({items: data}))
 
   }

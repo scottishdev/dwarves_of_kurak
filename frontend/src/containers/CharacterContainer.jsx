@@ -1,12 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import CharacterList from '../components/characters/CharacterList';
-<<<<<<< HEAD:frontend/src/containers/CharacterContainer.jsx
-import Request from '../helpers/request';
-=======
 import Request from '../helpers/request.js';
 import CharacterForm from '../components/characters/CharacterForm';
->>>>>>> 28e18e15bddb4ac4f5d5bdbad259202f254133df:frontend/src/containers/CharacterContainer.js
 
 class CharacterContainer extends Component{
   constructor(props){
@@ -15,21 +11,30 @@ class CharacterContainer extends Component{
       characters: []
     }
     this.handleCreationSubmit = this.handleCreationSubmit.bind(this);
+    this.manualFetch = this.manualFetch.bind(this);
   }
 
   componentDidMount(){
     const request = new Request();
-
-    request.get('/api/characters')
-    .then(data => this.setState({characters: data}))
-  }
+        this.manualFetch();
+    }
 
   handleCreationSubmit(newCharacter){
+    
+    request.postUser(newCharacter)
+    .then(()=>{this.manualFetch})
+
     newCharacter.id = Date.now()
     const updatedCharacters = [...this.state.characters, newCharacter]
     this.setState({
       characters: updatedCharacters
     })
+    
+  }
+
+  manualFetch(){
+    request.get('/characters')
+    .then(data => this.setState({characters: data}))
   }
 
   render(){

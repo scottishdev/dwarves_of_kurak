@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
-import PartyScreenContainer from './PartyScreenContainer';
-
+import PartyCharacterSelect from './PartyCharacterSelect';
+import requeest from '../helpers/request';
 const PartySelectContainer = (props) => {
+
+    
 
       return (
         <div>
-            <button className="game_start_options" onClick={()=>props.onClickListener(1)}> Create New Party </button>
-            <button className="game_start_options" onClick={()=>props.onClickListener(2)}> Use Existing </button>
+            PartySetup
+            <PartyCharacterSelect />
+            <PartyCharacterSelect />
+            <PartyCharacterSelect />
         </div>
     )
 }

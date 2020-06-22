@@ -15,16 +15,12 @@ class MainContainer extends Component {
         skillAssets: null
         }
     this.clickHandler = this.clickHandler.bind(this);
-    this.partySelect = this.partySelect.bind(this);
     }
 
   clickHandler(gameMode) {
     this.setState({gameMode:gameMode})
   }
 
-  partySelect(partysetting){
-      this.setState({party:partysetting})
-  }
 
 render() {
 
@@ -38,7 +34,7 @@ render() {
     } else{
         return (
         <div className="game_selector">
-            <PartySelectContainer onClickListener={this.partySelect}/>
+            <PartySelectContainer />
         </div>)
     }
   }

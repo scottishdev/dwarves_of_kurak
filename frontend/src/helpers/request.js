@@ -1,25 +1,27 @@
-class Request {
+const baseURL = "http://localhost:8080/api";
 
+class Request {
+    
     get(url){
-        return fetch(url)
+        return fetch(baseURL + url)
         .then(res => res.json())
     }
 
     show(url){
-        return fetch(url)
+        return fetch(baseURL + url)
         .then(res =>res.json())
     }
 
-    updateUser(id, payload){
-        return fetch(baseURL + id,{
+    updateCharacter(id, payload){
+        return fetch(baseURL + "/characters" + id,{
             method:'PUT',
             body: JSON.stringify(payload),
             headers: { 'Content-Type': 'application/json' }
             })
             .then(res => res.json())
     }
-    postUser(payload){
-            return fetch(baseURL,{
+    newCharacter(payload){
+            return fetch(baseURL + "/characters",{
             method: 'POST',
             body: JSON.stringify(payload),
             headers: { 'Content-Type': 'application/json' }
