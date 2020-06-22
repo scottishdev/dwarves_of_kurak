@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PartySelectContainer from './PartySelectContainer';
-import CharacterContainer from './CharacterContainer';
 
 class MainContainer extends Component {
 
