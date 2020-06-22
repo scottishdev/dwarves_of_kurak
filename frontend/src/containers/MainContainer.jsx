@@ -10,6 +10,7 @@ class MainContainer extends Component {
         this.state = {
             gameMode: null,
             party:null,
+            
             characterAssets: null,
             itemAssets: null,
             skillAssets: null,

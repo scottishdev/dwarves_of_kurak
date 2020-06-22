@@ -1,6 +1,8 @@
 package com.example.codeclan.DwarvesOfKurak.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -27,6 +29,7 @@ public class Skill {
     @Column
     private int damage;
 
+    @JsonIgnoreProperties(value="skills")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(

@@ -48,6 +48,7 @@ public class Character {
     @Column(name = "intelligence")
     private int intelligence;
 
+    @JsonIgnoreProperties(value="characters")
     @ManyToMany
     @JoinTable(
             name = "skills_characters",
