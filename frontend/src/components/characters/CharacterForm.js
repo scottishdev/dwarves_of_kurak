@@ -6,10 +6,12 @@ class CharacterForm extends Component{
     super(props);
     this.state={
       name: "",
-      race: ""
+      race: "",
+      gender: ""
     }
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleRaceChange = this.handleRaceChange.bind(this)
+    this.handleGenderChange = this.handleGenderChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -21,25 +23,39 @@ class CharacterForm extends Component{
     this.setState({race: event.target.value})
   }
 
+  handleGenderChange(event){
+    this.setState({gender: event.target.value})
+  }
+
   handleSubmit(event){
     event.preventDefault();
     const name = this.state.name.trim();
     const race = this.state.race;
-    if(!name || !race){
+    const gender = this.state.gender;
+    if(!name){
       return
     }
 
     const newCharacter ={
       name: name,
-      race: race
+      race: race,
+      hitPoints: 100,
+      coinPurse: 1000,
+      backStory: "New Story",
+      strength: 5,
+      intelligence:5,
+      manaPoints: 50,
+      gender: gender
     }
 
     this.props.onCharacterSubmit(newCharacter);
 
     this.setState({
       name: "",
-      race: ""
+      race: "",
+      gender: ""
     })
+
   }
 
 
@@ -53,11 +69,15 @@ class CharacterForm extends Component{
         required
         />
 
-            <label htmlFor="race">Choose a Race:</label>
-            <select id="race" name="race" value={this.state.name} onChange={this.handleRaceChange}>
-              <option value="Dwarf">Dwarf</option>
-              <option value="Human">Human</option>
-            </select>
+        <select id="race" name="race" value={this.state.race} onChange={this.handleRaceChange}>
+          <option value="Dwarf">Dwarf</option>
+          <option value="Human">Human</option>
+        </select>
+
+        <select id="gender" name="gender" value={this.state.gender} onChange={this.handleGenderChange}>
+          <option value="male">male</option>
+          <option value="female">female</option>
+        </select>
 
 
         <input type="submit" value="Save"/>

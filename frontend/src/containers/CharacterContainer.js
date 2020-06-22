@@ -21,6 +21,14 @@ class CharacterContainer extends Component{
   }
 
   handleCreationSubmit(newCharacter){
+        return fetch('http://localhost:3000/api/characters',
+           {
+                method: 'POST',
+                body: JSON.stringify(newCharacter),
+                headers: { 'Content-Type': 'application/json' }
+           })
+           .then(res => res.json())
+
     newCharacter.id = Date.now()
     const updatedCharacters = [...this.state.characters, newCharacter]
     this.setState({
@@ -30,18 +38,8 @@ class CharacterContainer extends Component{
 
   render(){
     return(
-      <Router>
-        <Fragment>
-          <Switch><div>
-          <h4>Create Character</h4>
-          <CharacterForm onCharacterSubmit={this.handleCreationSubmit}/>
-            <Route render={(props) => {
-              return <CharacterList characters={this.state.characters}/>
-            }}/>
-            </div>
-          </Switch>
-        </Fragment>
-      </Router>
+        <CharacterForm onCharacterSubmit={this.handleCreationSubmit}/>
+
     )
   }
 

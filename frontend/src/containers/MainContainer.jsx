@@ -1,9 +1,10 @@
 import React, {Component, Fragment} from 'react';
 import StartContainer from './StartContainer';
 import PartySelectContainer from './PartySelectContainer';
+import CharacterContainer from './CharacterContainer';
 
 class MainContainer extends Component {
-  
+
     constructor(props){
         super(props);
 
@@ -38,7 +39,7 @@ render() {
     } else{
         return (
         <div className="game_selector">
-            <PartySelectContainer onClickListener={this.partySelect}/>
+            <CharacterContainer/>
         </div>)
     }
   }

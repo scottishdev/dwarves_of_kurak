@@ -7,7 +7,7 @@ class Request {
         .then(res => res.json())
     }
 
-      updateUser(id, payload)
+      updateCharacter(id, payload)
      {
        return fetch(baseURL + id,
                    {method:'PUT',
@@ -17,7 +17,7 @@ class Request {
                    .then(res => res.json())
     }
 
-    postUser(payload)
+    newCharacter(payload)
      {
         return fetch(baseURL,
            {
