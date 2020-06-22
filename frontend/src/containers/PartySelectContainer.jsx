@@ -11,10 +11,12 @@ class PartySelectContainer extends Component {
             selectedCharacterTwo:null,
             selectedCharacterThree:null
         }
-        this.handlePartyChange = this.handlePartyChange.bind(this);
+        this.handlePartyChangeOne = this.handlePartyChangeOne.bind(this);
+        this.handlePartyChangeTwo = this.handlePartyChangeTwo.bind(this);
+        this.handlePartyChangeThree = this.handlePartyChangeThree.bind(this);
       }
 
-      handlePartyChange(id,key){
+      handlePartyChangeOne(id){
           const character = this.state.characters.find(char=>char.id === id)
           switch(key){
                 case 1:
@@ -27,9 +29,39 @@ class PartySelectContainer extends Component {
                     this.setState({selectedCharacterThree:character})
                     break
           }
-        
-
-      }
+        }
+        handlePartyChangeTwo(id){
+            const character = this.state.characters.find(char=>char.id === id)
+            switch(key){
+                  case 1:
+                      this.setState({selectedCharacterOne:character})
+                      break
+                  case 2:
+                      this.setState({selectedCharacterTwo:character})
+                      break
+                  case 3:
+                      this.setState({selectedCharacterThree:character})
+                      break
+            }
+          
+  
+        }
+        handlePartyChangeThree(id){
+            const character = this.state.characters.find(char=>char.id === id)
+            switch(key){
+                  case 1:
+                      this.setState({selectedCharacterOne:character})
+                      break
+                  case 2:
+                      this.setState({selectedCharacterTwo:character})
+                      break
+                  case 3:
+                      this.setState({selectedCharacterThree:character})
+                      break
+            }
+          
+  
+        }
     
   componentDidMount() {
     const request = new Request();
@@ -37,6 +69,7 @@ class PartySelectContainer extends Component {
     request.get('/characters')
     .then(data => this.setState({characters:data}))
   }
+    
 
 render(){
       return (
@@ -45,10 +78,9 @@ render(){
                 <h3>Party Setup</h3>
             </div>
             <div className="party_character_boxes">
-            <PartyCharacterSelect characters={this.characters} key={1} onHandleChange={this.handlePartyChange}/>
-            <PartyCharacterSelect characters={this.characters} key={2} onHandleChange={this.handlePartyChange} />
-            <PartyCharacterSelect characters={this.characters} key={3} onHandleChange={this.handlePartyChange}/>
-            
+            <PartyCharacterSelect characters={this.state.characters} onHandleChange={this.handlePartyChangeOne}/>
+            <PartyCharacterSelect characters={this.state.characters} onHandleChange={this.handlePartyChangeTwo} />
+            <PartyCharacterSelect characters={this.state.characters} onHandleChange={this.handlePartyChangeThree}/>
             </div>
         </div>
     )

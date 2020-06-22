@@ -2,8 +2,9 @@ import React from 'react';
 
 const PartyScreenContainer = (props) => {
 
-    if (!props.character ) return null
-
+    if(!props.characters) return null
+    
+    
     const options = props.characters.map(character =>{
         return <option value={character.id}> {character.name}</option>
     })
@@ -13,7 +14,7 @@ const PartyScreenContainer = (props) => {
         <p>characterBox</p>
         <select onChange={(id)=>props.onHandleChange(id,props.key)} defaultValue="default">
             <option disabled value="default">Choose a playable character</option>
-  
+            {options}
         </select>
     </div>
   )

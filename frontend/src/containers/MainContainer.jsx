@@ -1,5 +1,4 @@
-import React, {Component, Fragment} from 'react';
-import StartContainer from './StartContainer';
+import React, {Component} from 'react';
 import PartySelectContainer from './PartySelectContainer';
 
 class MainContainer extends Component {
