@@ -22,6 +22,7 @@ const PartySelectContainer = (props)=>{
                     key={index}
                     onHandleChange={char_id=>handlePartyChange(char_id,index)}
                  />
+                
             )
           
         })
