@@ -16,10 +16,15 @@ class MainContainer extends Component {
             jobassets:null
         }
     this.clickHandler = this.clickHandler.bind(this);
+    this.setParty = this.setParty.bind(this);
     }
 
   clickHandler(gameMode) {
     this.setState({gameMode:gameMode})
+  }
+
+  setParty(event){
+      this.setState({party:event})
   }
 
   componentDidMount() {
@@ -50,7 +55,7 @@ render() {
     } else{
         return (
         <div className="game_selector">
-            <PartySelectContainer />
+            <PartySelectContainer characterAssets={this.state.characterAssets} setPartyHandler={this.setParty}/>
         </div>)
     }
   }

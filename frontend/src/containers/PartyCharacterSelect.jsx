@@ -3,8 +3,7 @@ import React from 'react';
 const PartyScreenContainer = (props) => {
 
     if(!props.characters) return null
-    
-    
+        
     const options = props.characters.map(character =>{
         return <option value={character.id}> {character.name}</option>
     })

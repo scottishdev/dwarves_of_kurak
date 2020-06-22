@@ -1,68 +1,50 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import PartyCharacterSelect from './PartyCharacterSelect';
-import Request from '../helpers/request';
-class PartySelectContainer extends Component {
 
-    constructor(props){
-        super(props)
-        this.state = {
-            characters:null,
-            selectedCharacterOne:null,
-            selectedCharacterTwo:null,
-            selectedCharacterThree:null,
-            key:[1,2,3]
-        }
-        this.handlePartyChangeOne = this.handlePartyChangeOne.bind(this);
-        this.handlePartyChangeTwo = this.handlePartyChangeTwo.bind(this);
-        this.handlePartyChangeThree = this.handlePartyChangeThree.bind(this);
-      }
+const PartySelectContainer = (props)=>{
 
-    handlePartyChangeOne(id){
-        const char = this.state.characters.find(character=>character.id == id);
-            this.setState({selectedCharacterOne:char})
+    const [selectedCharacterOne,setSelectedCharacterOne] = useState();
+    const [selectedCharacterTwo,setSelectedCharacterTwo] = useState();
+    const [selectedCharacterThree,setSelectedCharacterThree] = useState();
+
+    function handlePartyChangeOne(id){
+        const character = props.characterAssets.find(character=>character.id == id);
+        setSelectedCharacterOne(character)
         }
 
-    handlePartyChangeTwo(id){
-        const character = this.state.characters.find(char=>char.id == id)
-            this.setState({selectedCharacterTwo:character})
+    function handlePartyChangeTwo(id){
+        const character = props.characterAssets.find(char=>char.id == id)
+        setSelectedCharacterTwo(character)
     }
 
-    handlePartyChangeThree(id){
-        const character = this.state.characters.find(char=>char.id == id)
-            this.setState({selectedCharacterThree:character})
+    function handlePartyChangeThree(id){
+        const character = props.characterAssets.find(char=>char.id == id)
+        setSelectedCharacterThree(character)
     }
 
-    componentDidMount() {
-        const request = new Request();
-
-        request.get('characters')
-        .then(data => this.setState({characters:data}))
-    }
-
-
-    render(){
-        if(!this.state.selectedCharacterOne||!this.state.selectedCharacterTwo||!this.state.selectedCharacterThree){
+    if(!selectedCharacterOne||!selectedCharacterTwo||!selectedCharacterThree){
         return (
             <div className="party_setup">
                 <div className="page_heading">
                     <h3>Party Setup</h3>
                 </div>
                 <div className="party_character_boxes">
-                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterOne} key={this.state.key[0]} onHandleChange={this.handlePartyChangeOne}/>
-                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterTwo} key={this.state.key[1]} onHandleChange={this.handlePartyChangeTwo} />
-                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterThree} key={this.state.key[2]} onHandleChange={this.handlePartyChangeThree}/>
+                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterOne}  onHandleChange={handlePartyChangeOne}/>
+                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterTwo}  onHandleChange={handlePartyChangeTwo} />
+                <PartyCharacterSelect characters={props.characterAssets} character={selectedCharacterThree} onHandleChange={handlePartyChangeThree}/>
                 </div>
             </div>
-            )
-        } else{
-            return(
-                <div className="party_setup">
-                    party selected
-                </div>
-            )
-        }
+        )
+    } else{
+        return(
+            <div className="party_setup">
+                party selected
+            </div>
+        )
     }
+ 
 
 }
+
 
 export default PartySelectContainer;
