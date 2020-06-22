@@ -24,7 +24,7 @@ public class Job {
 
     @JsonIgnoreProperties(value="character")
     @ManyToOne
-    @JoinColumn(name="held_by",referencedColumnName = "id")
+    @JoinColumn(name="job",referencedColumnName = "id")
     private Character character;
 
 
@@ -32,10 +32,20 @@ public class Job {
         this.name = name;
         this.strengthBonusStat = strengthBonusStat;
         this.intelBonusStat = intelBonusStat;
+        this.character = null;
     }
 
     public Job(){
 
+    }
+
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 
     public Long getId() {
@@ -64,13 +74,5 @@ public class Job {
 
     public void setIntelBonusStat(int intelBonusStat) {
         this.intelBonusStat = intelBonusStat;
-    }
-
-    public Character getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(Character character) {
-        this.character = character;
     }
 }

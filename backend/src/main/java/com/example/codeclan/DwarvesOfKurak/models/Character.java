@@ -193,6 +193,18 @@ public class Character {
         this.skills.add(skill);
     }
 
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> job) {
+        this.jobs = job;
+    }
+
+    public void addJob(Job job){
+        this.jobs.add(job);
+    }
+
     public int getCoinPurse() {
         return coinPurse;
     }
@@ -203,17 +215,5 @@ public class Character {
 
     public Long getId() {
         return id;
-    }
-
-    public List<Job> getJobs() {
-        return jobs;
-    }
-
-    public void setJobs(List<Job> jobs) {
-        this.jobs = jobs;
-    }
-
-    public void addJob(Job job){
-        this.jobs.add(job);
     }
 }
