@@ -34,7 +34,7 @@ class PartySelectContainer extends Component {
     componentDidMount() {
         const request = new Request();
 
-        request.get('/characters')
+        request.get('characters')
         .then(data => this.setState({characters:data}))
     }
 
