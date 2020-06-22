@@ -11,6 +11,24 @@ class PartySelectContainer extends Component {
             selectedCharacterTwo:null,
             selectedCharacterThree:null
         }
+        this.handlePartyChange = this.handlePartyChange.bind(this);
+      }
+
+      handlePartyChange(id,key){
+          const character = this.state.characters.find(char=>char.id === id)
+          switch(key){
+                case 1:
+                    this.setState({selectedCharacterOne:character})
+                    break
+                case 2:
+                    this.setState({selectedCharacterTwo:character})
+                    break
+                case 3:
+                    this.setState({selectedCharacterThree:character})
+                    break
+          }
+        
+
       }
     
   componentDidMount() {
@@ -27,9 +45,9 @@ render(){
                 <h3>Party Setup</h3>
             </div>
             <div className="party_character_boxes">
-            <PartyCharacterSelect characters={this.characters} />
-            <PartyCharacterSelect characters={this.characters} />
-            <PartyCharacterSelect characters={this.characters} />
+            <PartyCharacterSelect characters={this.characters} key={1} onHandleChange={this.handlePartyChange}/>
+            <PartyCharacterSelect characters={this.characters} key={2} onHandleChange={this.handlePartyChange} />
+            <PartyCharacterSelect characters={this.characters} key={3} onHandleChange={this.handlePartyChange}/>
             
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React from 'react';
 import {browserHistory, Redirect} from 'react-router-dom';
 import PartySelectContainer from './PartySelectContainer.jsx';
 
@@ -11,7 +11,7 @@ const StartContainer = (props) => {
 
 
   return (
-    <Fragment>
+    <div>
 
         <h1>Dwarves Of Kurak</h1>
         <p>Select Game Mode: </p>
@@ -20,7 +20,7 @@ const StartContainer = (props) => {
         <button onClick={()=>onNavigateFight(2)}>Single Level</button>
         <hr />
         <button onClick={()=>onNavigateFight(3)}>Campaign Mode</button>
-    </Fragment>
+    </div>
   )
 
 
