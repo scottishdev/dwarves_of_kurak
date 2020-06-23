@@ -43,9 +43,11 @@ const PartySelect = (props)=>{
     } else{
         return(
             <div className="party_setup">
-                party selected
+                <p>party setup complete</p>
+                <button onClick={props.setPartyHandler} >Start Game</button>
             </div>
         )
+            
     }
  
 

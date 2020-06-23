@@ -1,26 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class GameContainer extends Component{
-    constructor(props){
-        super(props);
-
-        this.state = {
-            game:null
-        }
+const GameContainer =  (props)=>{
+    
     // function binds here
 
-    }
+    
 
     // function creation here
 
-    render(){
-        return (
-            <div>
-                //game renders here
-                <p> game </p>
-            </div>
-        )
-    }
+    return (
+        <div className="game_screen">
+            {console.log("rendering game")}
+            //game renders here
+            <p> game </p>
+        </div>
+    )
+    
 
 }
 export default GameContainer;
