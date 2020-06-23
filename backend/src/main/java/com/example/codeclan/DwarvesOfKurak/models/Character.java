@@ -79,7 +79,7 @@ public class Character {
     @JoinColumn(name="party", referencedColumnName = "id")
     private Party party;
 
-    public Character(String name, String race, String gender, String backStory) {
+    public Character(String name, String race, String gender, String backStory, String image) {
         this.name = name;
         this.race = race;
         this.gender = gender;
