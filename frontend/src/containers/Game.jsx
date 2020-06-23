@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BattleLog from '../components/GameComponents/BattleLog';
 import Monster from '../components/GameComponents/Monster';
 import Character from '../components/GameComponents/Character';
+import PlayerCommands from '../components/GameComponents/PlayerCommands';
 import Request from '../helpers/request';
 
 const Game = (props)=>{
@@ -9,6 +10,7 @@ const Game = (props)=>{
     // function binds here
     const [monsters,setMonsters] = useState(null);
     const [character,setCharacter] = useState(null);
+    const [battleLog,setBattleLog] = useState({log:[]});
     const request = new Request;
 
     // function creation here
@@ -27,6 +29,14 @@ const Game = (props)=>{
         request.get('party')
         .then(data=>setCharacter(data))
     }
+
+    function attack(){
+        const text = {character}
+        
+       setBattleLog()
+        
+    }
+
 
     if(!character) return null
     return (
@@ -47,10 +57,9 @@ const Game = (props)=>{
                 </div>
             </div>
             <div className="game_screen_bottom">
-                <Character character={character}/>
-                <div className="game_screen_player_commands">
-                    player commands
-                </div>
+                <Character character={character} />
+                <PlayerCommands onAttackHandle={attack} />
+                
                 <div className="game_screen_minimap">
                     minimap goes here
                 </div>
