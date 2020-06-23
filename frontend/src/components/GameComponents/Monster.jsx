@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Monster = (props) => {
+const Monster = ({monster}) => {
 
     return (
         <div className="game_screen_monster">
-            <span>Name:{props.monster[1].name}</span><br />
-            <span>Race:{props.monster[1].race}</span><br />
-            <span>HP:{props.monster[1].hitPoints}</span><br />
-            <span>MP:{props.monster[1].manaPoints}</span>
+            <span>Name:{monster.name}</span><br />
+            <span>Race:{monster.race}</span><br />
+            <span>HP:{monster.hitPoints}</span><br />
+            <span>MP:{monster.manaPoints}</span>
 
             
         </div>

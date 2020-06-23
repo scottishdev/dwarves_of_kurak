@@ -22,17 +22,25 @@ const Game = (props)=>{
     
     const getPost = ()=>{
         request.get('monsters')
-        .then(data=>setMonsters(data))
+        .then(data=>setMonsters(data[1]))
     }
 
     const getParty = ()=>{
         request.get('party')
-        .then(data=>setCharacter(data))
+        .then(data=>setCharacter(data[0].characters[0]))
     }
 
     function attack(){
-        const text = {character}
-        
+        // const turn_one = "" + {character.name} + " attacks " + {monster.name} + " for " + {character.strength} + " damage."
+        // const turn_two = "" + {monster.name} + " attacks " + {character.name} + " for " + {monster.strength} + " damage."
+        // const updateMonster = monsters
+        // const updateCharacter = character
+
+        //logic => player attack minus monster hp and render update.
+        //logic => wait 2 sec
+        //log => monstername attacks player for # damage.
+        //logic => monster attack minus player hp and render update.
+
        setBattleLog()
         
     }
@@ -46,7 +54,7 @@ const Game = (props)=>{
                 <BattleLog />
                 <Monster monster={monsters}/>
                 <div className="game_screen_sprites">
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="50px" height="50px"/>
+                    <img src={monsters.image} width="50px" height="50px"/>
                     <img src="http://localhost:8080/api/assets/gif?image=slime" width="25px" height="25px"/>
                     <img src="http://localhost:8080/api/assets/gif?image=slime" width="25px" height="25px"/>
                     <img src="http://localhost:8080/api/assets/gif?image=slime" width="50px" height="50px"/>
