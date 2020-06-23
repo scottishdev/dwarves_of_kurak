@@ -53,11 +53,13 @@ const Game = (props)=>{
             <div className="game_screen_top">
                 <BattleLog />
                 <Monster monster={monsters}/>
-                <div className="game_screen_sprites_L">
+                <div className="game_screen_sprites">
+                <div className="game_screen_character_sprites">
                     <img src={character.image} width="100px" height="100px"/>
                 </div>
-                <div className="game_screen_sprites_R">
+                <div className="game_screen_monster_sprites">
                     <img src={monsters.image} width="100px" height="100px"/>
+                </div>
                 </div>
             </div>
             <div className="game_screen_bottom">

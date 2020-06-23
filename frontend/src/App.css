@@ -38,13 +38,22 @@ div{
 }
 .game_screen_sprites{
     display:flex;
-    flex-direction:row-reverse;
+    flex-direction:row;
+    justify-content:space-around;
     align-items:center;
     width:inherit;
     height:250px;
     color:green;
+}
+.game_screen_character_sprites{
+    
 
 }
+.game_screen_monster_sprites{
+    
+
+}
+
 .game_screen_bottom{
     display:flex;
     flex-wrap:wrap;
