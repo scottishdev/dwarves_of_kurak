@@ -7,7 +7,7 @@ const PartySelect = (props)=>{
     const i = [0,1,2]
     
     function handlePartyChange(id,index){
-        console.log("change party member " + id);
+        console.log("change party member " + index);
         const character = props.characterAssets.find(character=>character.id == id);
         const party = selChar.party
         party[index] = character
@@ -47,10 +47,7 @@ const PartySelect = (props)=>{
                 <button onClick={props.setPartyHandler} >Start Game</button>
             </div>
         )
-            
     }
- 
-
 }
 
 

@@ -233,6 +233,7 @@ public class Character {
 
     public void setImage(String image) {
         this.image = image;
+    }
 
     public Party getParty() {
         return party;
