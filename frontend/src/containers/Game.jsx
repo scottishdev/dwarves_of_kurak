@@ -31,6 +31,7 @@ const Game = (props)=>{
     }
 
     function attack(){
+
         // const turn_one = "" + {character.name} + " attacks " + {monster.name} + " for " + {character.strength} + " damage."
         // const turn_two = "" + {monster.name} + " attacks " + {character.name} + " for " + {monster.strength} + " damage."
         // const updateMonster = monsters
@@ -51,7 +52,7 @@ const Game = (props)=>{
         <div className="game_screen">
             {console.log("rendering game")}
             <div className="game_screen_top">
-                <BattleLog />
+                <BattleLog battleLog={battleLog}/>
                 <Monster monster={monsters}/>
                 <div className="game_screen_sprites">
                 <div className="game_screen_character_sprites">
