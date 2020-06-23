@@ -33,6 +33,7 @@ public class Monster {
     @Column(name = "intelligence")
     private int intelligence;
 
+
     @ManyToOne
     @JoinColumn(name="encounter",referencedColumnName = "id")
     private Encounter encounter;

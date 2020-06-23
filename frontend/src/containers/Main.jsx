@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import PartySelectContainer from './PartySelectContainer';
+import PartySelect from './PartySelect';
 import Request from '../helpers/request';
-import StartContainer from './StartContainer';
+import Start from '../components/Start';
 
 class MainContainer extends Component {
 
@@ -54,11 +54,11 @@ class MainContainer extends Component {
     render() {
 
         if(this.state.gameMode == null){
-            return (<StartContainer  onClickHandler={this.startClickHandler}/>)
+            return (<Start  onClickHandler={this.startClickHandler}/>)
             }   else{
                 return (
                 <div className="game_selector">
-                    <PartySelectContainer characterAssets={this.state.characterAssets} setPartyHandler={this.setParty}/>
+                    <PartySelect characterAssets={this.state.characterAssets} setPartyHandler={this.setParty}/>
                 </div>)
         }
     }
