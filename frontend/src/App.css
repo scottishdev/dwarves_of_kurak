@@ -18,7 +18,7 @@ div{
     align-content:flex-start;
     width:inherit;
     height:350px;
-    background-image: url('http://localhost:8080/api/assets/jpg?image=alpha');
+    background-image: url('http://localhost:8080/api/assets/png?image=alpha');
     background-repeat:no-repeat;
     background-size:cover;
 }
@@ -33,9 +33,13 @@ div{
     color:white;
 }
 .game_screen_sprites{
+    display:flex;
+    flex-direction:row-reverse;
+    align-items:center;
     width:inherit;
     height:250px;
     color:green;
+
 }
 .game_screen_bottom{
     display:flex;
@@ -44,21 +48,27 @@ div{
     align-content:flex-start;
     width:inherit;
     height:155px;
-    background-color:black;
+    background-image: url('http://localhost:8080/api/assets/png?image=hud');
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 .game_screen_player_stats{
-    width:200px;
+    width:180px;
+    padding-left:20px;
+    padding-top:15px;
     height:inherit;
     color:white;
 }
 .game_screen_player_commands{
-    width:400px;
+    width:380px;
+    padding-top:15px;
     height:inherit;
     color:white;
 }
 .game_screen_minimap{
-    width:190px;
+    width:200px;
     height:inherit;
+    padding-top:15px;
     color:white;
 }
 .App {

@@ -19,15 +19,15 @@ const GameContainer =  (props)=>{
                     monster details go here
                 </div>
                 <div className="game_screen_sprites">
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
-                    
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="50px" height="50px"/>
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="25px" height="25px"/>
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="25px" height="25px"/>
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="50px" height="50px"/>
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="70px" height="70px" />
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="20px" height="20px" />
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="50px" height="50px"/>
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="100px" height="100px"/>
+
                 </div>
             </div>
             <div className="game_screen_bottom">
