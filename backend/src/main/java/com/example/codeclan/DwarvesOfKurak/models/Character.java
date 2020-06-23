@@ -64,7 +64,8 @@ public class Character {
     @OneToMany(mappedBy="character", fetch = FetchType.LAZY)
     private List<Item> items;
 
-    @JsonIgnoreProperties(value="character")
+
+    @JsonIgnoreProperties(value="characters")
     @ManyToOne
     @JoinColumn(name="job", referencedColumnName = "id")
     private Job job;

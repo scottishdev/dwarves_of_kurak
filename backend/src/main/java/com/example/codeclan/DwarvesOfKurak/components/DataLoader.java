@@ -139,7 +139,7 @@ public class DataLoader implements ApplicationRunner {
         dumas.addSkill(iceShard);
         characterRepository.save(dumas);
 
-        
+
     }
 
 }
