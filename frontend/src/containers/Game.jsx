@@ -19,7 +19,15 @@ const GameContainer =  (props)=>{
                     monster details go here
                 </div>
                 <div className="game_screen_sprites">
-                    sprites go here
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
+                    <img src="http://localhost:8080/api/assets/gif?image=slime" />
+                    
                 </div>
             </div>
             <div className="game_screen_bottom">
