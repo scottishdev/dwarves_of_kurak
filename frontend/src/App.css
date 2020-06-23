@@ -30,7 +30,11 @@ div{
 .game_screen_monster{
     width:150px;
     height:100px;
-    color:white;
+    color:black;
+    font-family:Impact;
+    font-size:15px;
+    text-shadow: 2px 2px 2px red;
+    opacity:0.6;
 }
 .game_screen_sprites{
     display:flex;
