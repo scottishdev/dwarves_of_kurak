@@ -139,6 +139,15 @@ public class DataLoader implements ApplicationRunner {
         dumas.addSkill(iceShard);
         characterRepository.save(dumas);
 
+        Party party = new Party();
+        partyRepository.save(party);
+        party.addCharacter(jim);
+        jim.setParty(party);
+        characterRepository.save(jim);
+        brunor.setParty(party);
+        characterRepository.save(brunor);
+        dumas.setParty(party);
+        characterRepository.save(dumas);
 
     }
 
