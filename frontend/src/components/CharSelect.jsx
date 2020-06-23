@@ -6,8 +6,7 @@ const CharSelect = (props) => {
 
   const options = props.characters.map((character, index) => {
     if (
-      character.selectedDropdown === undefined ||
-      props.index === character.selectedDropdown
+      character.selectedDropdown === undefined || props.index === character.selectedDropdown
     ) {
       return (
         <option value={character.name} key={index}>
