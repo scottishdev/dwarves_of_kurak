@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import PartyCharacterSelect from './PartyCharacterSelect';
+import CharSelect from '../components/CharSelect';
 
-const PartySelectContainer = (props)=>{
+const PartySelect = (props)=>{
 
     const [selChar,setSelChar] = useState({party:[],loopcount:[0,1,2]});
     const i = [0,1,2]
@@ -16,7 +16,7 @@ const PartySelectContainer = (props)=>{
 
     const partySelectorComponents = i.map(index=>{
             return (
-                <PartyCharacterSelect 
+                <CharSelect 
                     characters={props.characterAssets}
                     character={selChar.party[index]}
                     key={index}
@@ -43,13 +43,15 @@ const PartySelectContainer = (props)=>{
     } else{
         return(
             <div className="party_setup">
-                party selected
+                <p>party setup complete</p>
+                <button onClick={props.setPartyHandler} >Start Game</button>
             </div>
         )
+            
     }
  
 
 }
 
 
-export default PartySelectContainer;
+export default PartySelect;

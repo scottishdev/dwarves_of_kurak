@@ -7,6 +7,70 @@ div{
     border:solid;
     border-width:thin;
 }
+.game_screen{
+    width:inherit;
+    height:inherit;
+}
+.game_screen_top{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-content:flex-start;
+    width:inherit;
+    height:350px;
+    background-image: url('http://localhost:8080/api/assets/png?image=alpha');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.game_screen_log{
+    width:643px;
+    height:100px;
+    color:red;
+}
+.game_screen_monster{
+    width:150px;
+    height:100px;
+    color:white;
+}
+.game_screen_sprites{
+    display:flex;
+    flex-direction:row-reverse;
+    align-items:center;
+    width:inherit;
+    height:250px;
+    color:green;
+
+}
+.game_screen_bottom{
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    align-content:flex-start;
+    width:inherit;
+    height:155px;
+    background-image: url('http://localhost:8080/api/assets/png?image=hud');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.game_screen_player_stats{
+    width:180px;
+    padding-left:20px;
+    padding-top:15px;
+    height:inherit;
+    color:white;
+}
+.game_screen_player_commands{
+    width:380px;
+    padding-top:15px;
+    height:inherit;
+    color:white;
+}
+.game_screen_minimap{
+    width:200px;
+    height:inherit;
+    padding-top:15px;
+    color:white;
+}
 .App {
   text-align: center;
   

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PartyCharacterSelect = (props) => {
+const CharSelect = (props) => {
 
     if(!props.characters) return null
         
@@ -30,4 +30,4 @@ const PartyCharacterSelect = (props) => {
         )
     }
 }
-export default PartyCharacterSelect;
+export default CharSelect;

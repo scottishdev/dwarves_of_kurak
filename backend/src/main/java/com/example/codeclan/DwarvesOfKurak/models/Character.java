@@ -64,15 +64,22 @@ public class Character {
     @OneToMany(mappedBy="character", fetch = FetchType.LAZY)
     private List<Item> items;
 
-    @JsonIgnoreProperties(value="job")
+
+    @JsonIgnoreProperties(value="characters")
     @ManyToOne
     @JoinColumn(name="job", referencedColumnName = "id")
     private Job job;
 
+
     @Column(name = "image")
     private String image;
 
-    public Character(String name, String race, String gender, String backStory, String image) {
+    @JsonIgnoreProperties(value="characters")
+    @ManyToOne
+    @JoinColumn(name="party", referencedColumnName = "id")
+    private Party party;
+
+    public Character(String name, String race, String gender, String backStory) {
         this.name = name;
         this.race = race;
         this.gender = gender;
@@ -88,6 +95,7 @@ public class Character {
         this.job = null;
         this.skills = new ArrayList<>();
         this.image = image;
+        this.party = null;
     }
 
     public Character(){
@@ -225,5 +233,12 @@ public class Character {
 
     public void setImage(String image) {
         this.image = image;
+
+    public Party getParty() {
+        return party;
+    }
+
+    public void setParty(Party party) {
+        this.party = party;
     }
 }

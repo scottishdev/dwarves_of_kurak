@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import PartySelectContainer from './PartySelectContainer';
 import Request from '../helpers/request';
-import StartContainer from './StartContainer';
+import Start from '../components/Start';
+import PartySelect from './PartySelect';
+import Game from './Game';
+
 
 class MainContainer extends Component {
 
@@ -27,9 +29,9 @@ class MainContainer extends Component {
         this.setState({gameMode:gameMode})
     }
 
-    setParty(event){
+    setParty(){
         console.log("setting Party members");
-        this.setState({party:event})
+        this.setState({party:1})
     }
 
     componentDidMount() {
@@ -52,14 +54,21 @@ class MainContainer extends Component {
     }
 
     render() {
-
+        {console.log("rendering main Container")}
+                    
         if(this.state.gameMode == null){
-            return (<StartContainer  onClickHandler={this.startClickHandler}/>)
-            }   else{
+            return (<Start  onClickHandler={this.startClickHandler}/>)
+            }
+        else if (this.state.party == null){
                 return (
                 <div className="game_selector">
-                    <PartySelectContainer characterAssets={this.state.characterAssets} setPartyHandler={this.setParty}/>
+                     <PartySelect characterAssets={this.state.characterAssets} setPartyHandler={this.setParty}/>
                 </div>)
+        }
+        else{
+            return(
+                <Game />
+            )
         }
     }
 
