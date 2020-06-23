@@ -11,8 +11,28 @@ const GameContainer =  (props)=>{
     return (
         <div className="game_screen">
             {console.log("rendering game")}
-            //game renders here
-            <p> game </p>
+            <div className="game_screen_top">
+                <div className="game_screen_log">
+                    monster uses an attack, you die instantly
+                </div>
+                <div className="game_screen_monster">
+                    monster details go here
+                </div>
+                <div className="game_screen_sprites">
+                    sprites go here
+                </div>
+            </div>
+            <div className="game_screen_bottom">
+                <div className="game_screen_player_stats">
+                    player information
+                </div>
+                <div className="game_screen_player_commands">
+                    player commands
+                </div>
+                <div className="game_screen_minimap">
+                    minimap goes here
+                </div>
+            </div>
         </div>
     )
     
