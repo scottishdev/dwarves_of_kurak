@@ -28,6 +28,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     EncounterRepository encounterRepository;
 
+    @Autowired
+    PartyRepository partyRepository;
+
     public DataLoader(){
     }
 
@@ -136,6 +139,7 @@ public class DataLoader implements ApplicationRunner {
         dumas.addSkill(iceShard);
         characterRepository.save(dumas);
 
+        
     }
 
 }

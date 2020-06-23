@@ -64,12 +64,12 @@ public class Character {
     @OneToMany(mappedBy="character", fetch = FetchType.LAZY)
     private List<Item> items;
 
-    @JsonIgnoreProperties(value="job")
+    @JsonIgnoreProperties(value="character")
     @ManyToOne
     @JoinColumn(name="job", referencedColumnName = "id")
     private Job job;
 
-    @JsonIgnoreProperties(value="party")
+    @JsonIgnoreProperties(value="characters")
     @ManyToOne
     @JoinColumn(name="party", referencedColumnName = "id")
     private Party party;
@@ -219,5 +219,13 @@ public class Character {
 
     public Long getId() {
         return id;
+    }
+
+    public Party getParty() {
+        return party;
+    }
+
+    public void setParty(Party party) {
+        this.party = party;
     }
 }
