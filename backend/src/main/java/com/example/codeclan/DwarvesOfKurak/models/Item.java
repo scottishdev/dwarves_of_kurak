@@ -36,6 +36,11 @@ public class Item {
     @JoinColumn(name="held_by",referencedColumnName = "id")
     private Character character;
 
+    @JsonIgnoreProperties(value="Encounter")
+    @ManyToOne
+    @JoinColumn(name="dropped_in",referencedColumnName = "id")
+    private Encounter encounter;
+
     public Item(String name, String type, Double itemStrength, Double buyCost, Double sellCost) {
         this.name = name;
         this.type = type;
@@ -43,12 +48,20 @@ public class Item {
         this.buyCost = buyCost;
         this.sellCost = sellCost;
         this.character = null;
+        this.encounter = null;
     }
 
     public Item (){
 
     }
 
+    public Encounter getEncounter() {
+        return encounter;
+    }
+
+    public void setEncounter(Encounter encounter) {
+        this.encounter = encounter;
+    }
 
     public Character getCharacter() {
         return character;

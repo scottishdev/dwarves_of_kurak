@@ -25,6 +25,8 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     MonsterRepository monsterRepository;
 
+    @Autowired
+    EncounterRepository encounterRepository;
 
     public DataLoader(){
     }
@@ -96,6 +98,22 @@ public class DataLoader implements ApplicationRunner {
         characterRepository.save(dumas);
         Character durlin = new Character("Durlin", "CityKin", "Male", "Though few in number, the city kin live in large cities among the other greater races - Humans and Elves. The more magically attuned of them even join the guilds of magic and learn the ways or sorcery");
         characterRepository.save(durlin);
+
+        //Encounters
+        //Adding monsters + items to encounter
+        Encounter encounter1 = new Encounter(100);
+        encounterRepository.save(encounter1);
+
+        zombie1.setEncounter(encounter1);
+        monsterRepository.save(zombie1);
+        zombie2.setEncounter(encounter1);
+        monsterRepository.save(zombie2);
+
+        sword.setEncounter(encounter1);
+        itemRepository.save(sword);
+        chainMail.setEncounter(encounter1);
+        itemRepository.save(chainMail);
+
 
         // Test Logic
         healthPotion.setCharacter(jim); //adds character name to character variable in items. Hence populating chars inventory.

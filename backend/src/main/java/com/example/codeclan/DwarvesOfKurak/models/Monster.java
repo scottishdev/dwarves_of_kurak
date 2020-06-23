@@ -33,6 +33,10 @@ public class Monster {
     @Column(name = "intelligence")
     private int intelligence;
 
+    @ManyToOne
+    @JoinColumn(name="encounter",referencedColumnName = "id")
+    private Encounter encounter;
+
 
     public Monster(String name, String race, int hitPoints, int manaPoints, int strength, int intelligence) {
         this.name = name;
@@ -43,6 +47,7 @@ public class Monster {
         this.intelligence = intelligence;
         this.weapon = null;
         this.armour = null;
+        this.encounter = null;
     }
 
     public Monster(){
@@ -50,6 +55,14 @@ public class Monster {
     }
     public Long getId() {
         return id;
+    }
+
+    public Encounter getEncounter() {
+        return encounter;
+    }
+
+    public void setEncounter(Encounter encounter) {
+        this.encounter = encounter;
     }
 
     public String getName() {
