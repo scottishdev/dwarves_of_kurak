@@ -1,30 +1,14 @@
 import React from 'react';
-import {browserHistory, Redirect} from 'react-router-dom';
-import PartySelectContainer from './PartySelectContainer.jsx';
-import CharacterContainer from './CharacterContainer.js';
 
 const StartContainer = (props) => {
 
-    function onNavigateFight(gameMode){
-
-        return <Redirect to="/party"/>
-    }
-
-
   return (
-    <div>
-
-        <h1>Dwarves Of Kurak</h1>
-        <p>Select Game Mode: </p>
-        <button onClick={()=>onNavigateFight(1)}>Single Fight</button>
-        <hr />
-        <button onClick={()=>onNavigateFight(2)}>Single Level</button>
-        <hr />
-        <button onClick={()=>onNavigateFight(3)}>Campaign Mode</button>
-    </div>
-  )
-
-
+        <div className="game_selector">
+            <button className="game_start_options" onClick={()=>props.onClickHandler(1)}>Fight</button>
+            <button className="game_start_options" onClick={()=>props.onClickHandler(2)}>Consecutive Fight</button>
+            <button className="game_start_options" onClick={()=>props.onClickHandler(3)}>Dungeon Crawler</button>
+        </div>
+    )
 
 }
 export default StartContainer;

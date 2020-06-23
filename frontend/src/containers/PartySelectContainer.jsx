@@ -1,67 +1,55 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import PartyCharacterSelect from './PartyCharacterSelect';
-import Request from '../helpers/request';
-class PartySelectContainer extends Component {
-    
-    constructor(props){
-        super(props)
-        this.state = {
-            characters:null,
-            selectedCharacterOne:null,
-            selectedCharacterTwo:null,
-            selectedCharacterThree:null
-        }
-        this.handlePartyChangeOne = this.handlePartyChangeOne.bind(this);
-        this.handlePartyChangeTwo = this.handlePartyChangeTwo.bind(this);
-        this.handlePartyChangeThree = this.handlePartyChangeThree.bind(this);
-      }
 
-    handlePartyChangeOne(id){
-        const char = this.state.characters.find(character=>character.id == id);
-            this.setState({selectedCharacterOne:char})
-        }
-        
-    handlePartyChangeTwo(id){
-        const character = this.state.characters.find(char=>char.id == id)
-            this.setState({selectedCharacterTwo:character})
+const PartySelectContainer = (props)=>{
+
+    const [selChar,setSelChar] = useState({party:[],loopcount:[0,1,2]});
+    const i = [0,1,2]
+    
+    function handlePartyChange(id,index){
+        console.log("change party member " + id);
+        const character = props.characterAssets.find(character=>character.id == id);
+        const party = selChar.party
+        party[index] = character
+        setSelChar({party:party})
     }
+
+    const partySelectorComponents = i.map(index=>{
+            return (
+                <PartyCharacterSelect 
+                    characters={props.characterAssets}
+                    character={selChar.party[index]}
+                    key={index}
+                    onHandleChange={char_id=>handlePartyChange(char_id,index)}
+                 />
+                
+            )
           
-    handlePartyChangeThree(id){
-        const character = this.state.characters.find(char=>char.id == id)
-            this.setState({selectedCharacterThree:character})
-    }
-    
-    componentDidMount() {
-        const request = new Request();
+        })
 
-        request.get('/characters')
-        .then(data => this.setState({characters:data}))
-    }
-    
-
-    render(){
-        if(!this.state.selectedCharacterOne||!this.state.selectedCharacterTwo||!this.state.selectedCharacterThree){
+    if(selChar.party.length<3){
         return (
             <div className="party_setup">
+                {console.log("rendering partySelect Container")}
+                
                 <div className="page_heading">
                     <h3>Party Setup</h3>
                 </div>
                 <div className="party_character_boxes">
-                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterOne} onHandleChange={this.handlePartyChangeOne}/>
-                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterTwo}  onHandleChange={this.handlePartyChangeTwo} />
-                <PartyCharacterSelect characters={this.state.characters} character={this.state.selectedCharacterThree}  onHandleChange={this.handlePartyChangeThree}/>
+                    {partySelectorComponents}
                 </div>
             </div>
-            )
-        } else{
-            return(
-                <div className="party_setup">
-                    party selected
-                </div>
-            )
-        }
+        )
+    } else{
+        return(
+            <div className="party_setup">
+                party selected
+            </div>
+        )
     }
+ 
 
 }
+
 
 export default PartySelectContainer;

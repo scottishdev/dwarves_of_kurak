@@ -1,6 +1,9 @@
 package com.example.codeclan.DwarvesOfKurak.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,14 +23,32 @@ public class Job {
     @Column
     private int intelBonusStat;
 
+    @JsonIgnoreProperties(value="job")
+    @OneToMany(mappedBy="job", fetch = FetchType.LAZY)
+    private List<Character> character;
+
+
     public Job(String name, int strengthBonusStat, int intelBonusStat) {
         this.name = name;
         this.strengthBonusStat = strengthBonusStat;
         this.intelBonusStat = intelBonusStat;
+        this.character = new ArrayList<>();
     }
 
     public Job(){
 
+    }
+
+    public List<Character> getCharacters() {
+        return character;
+    }
+
+    public void setCharacter(List<Character> character) {
+        this.character = character;
+    }
+
+    public void addCharacter(Character character){
+        this.character.add(character);
     }
 
     public Long getId() {
@@ -57,4 +78,5 @@ public class Job {
     public void setIntelBonusStat(int intelBonusStat) {
         this.intelBonusStat = intelBonusStat;
     }
+
 }

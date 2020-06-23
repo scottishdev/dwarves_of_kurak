@@ -1,10 +1,9 @@
 import React from 'react';
 
-const PartyScreenContainer = (props) => {
+const PartyCharacterSelect = (props) => {
 
     if(!props.characters) return null
-    
-    
+        
     const options = props.characters.map(character =>{
         return <option value={character.id}> {character.name}</option>
     })
@@ -31,4 +30,4 @@ const PartyScreenContainer = (props) => {
         )
     }
 }
-export default PartyScreenContainer;
+export default PartyCharacterSelect;
