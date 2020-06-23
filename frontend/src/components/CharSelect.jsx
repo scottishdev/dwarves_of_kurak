@@ -4,8 +4,8 @@ const CharSelect = (props) => {
 
     if(!props.characters) return null
         
-    const options = props.characters.map(character =>{
-        return <option value={character.id}> {character.name}</option>
+    const options = props.characters.map((character, index) =>{
+        return <option value={character.id} key={index}> {character.name}</option>
     })
 
     if(!props.character){
