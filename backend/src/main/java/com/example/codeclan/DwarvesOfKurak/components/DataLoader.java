@@ -28,6 +28,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     EncounterRepository encounterRepository;
 
+    @Autowired
+    PartyRepository partyRepository;
+
     public DataLoader(){
     }
 
@@ -134,6 +137,16 @@ public class DataLoader implements ApplicationRunner {
 
         dumas.setJob(bum);
         dumas.addSkill(iceShard);
+        characterRepository.save(dumas);
+
+        Party party = new Party();
+        partyRepository.save(party);
+        party.addCharacter(jim);
+        jim.setParty(party);
+        characterRepository.save(jim);
+        brunor.setParty(party);
+        characterRepository.save(brunor);
+        dumas.setParty(party);
         characterRepository.save(dumas);
 
     }
