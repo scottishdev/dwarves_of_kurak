@@ -69,7 +69,10 @@ public class Character {
     @JoinColumn(name="job", referencedColumnName = "id")
     private Job job;
 
-    public Character(String name, String race, String gender, String backStory) {
+    @Column(name = "image")
+    private String image;
+
+    public Character(String name, String race, String gender, String backStory, String image) {
         this.name = name;
         this.race = race;
         this.gender = gender;
@@ -84,6 +87,7 @@ public class Character {
         this.items = new ArrayList<>();
         this.job = null;
         this.skills = new ArrayList<>();
+        this.image = image;
     }
 
     public Character(){
@@ -213,5 +217,13 @@ public class Character {
 
     public Long getId() {
         return id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
