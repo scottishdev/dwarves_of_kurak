@@ -70,6 +70,10 @@ public class Character {
     @JoinColumn(name="job", referencedColumnName = "id")
     private Job job;
 
+
+    @Column(name = "image")
+    private String image;
+
     @JsonIgnoreProperties(value="characters")
     @ManyToOne
     @JoinColumn(name="party", referencedColumnName = "id")
@@ -90,6 +94,7 @@ public class Character {
         this.items = new ArrayList<>();
         this.job = null;
         this.skills = new ArrayList<>();
+        this.image = image;
         this.party = null;
     }
 
@@ -221,6 +226,13 @@ public class Character {
     public Long getId() {
         return id;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
 
     public Party getParty() {
         return party;

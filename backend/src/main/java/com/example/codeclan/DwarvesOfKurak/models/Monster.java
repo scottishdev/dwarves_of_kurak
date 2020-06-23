@@ -38,8 +38,11 @@ public class Monster {
     @JoinColumn(name="encounter",referencedColumnName = "id")
     private Encounter encounter;
 
+    @Column
+    private String image;
 
-    public Monster(String name, String race, int hitPoints, int manaPoints, int strength, int intelligence) {
+
+    public Monster(String name, String race, int hitPoints, int manaPoints, int strength, int intelligence, String image) {
         this.name = name;
         this.race = race;
         this.hitPoints = hitPoints;
@@ -49,6 +52,7 @@ public class Monster {
         this.weapon = null;
         this.armour = null;
         this.encounter = null;
+        this.image = image;
     }
 
     public Monster(){
@@ -128,5 +132,13 @@ public class Monster {
 
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

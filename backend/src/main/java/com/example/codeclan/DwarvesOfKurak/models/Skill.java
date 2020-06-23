@@ -46,13 +46,17 @@ public class Skill {
     )
     private List<Character> characters;
 
+    @Column
+    private String image;
 
-    public Skill(String name, String type, String sideEffect, int damage) {
+
+    public Skill(String name, String type, String sideEffect, int damage, String image) {
         this.name = name;
         this.type = type;
         this.sideEffect = sideEffect;
         this.damage = damage;
         this.characters = null;
+        this.image = image;
     }
 
     public Skill(){
@@ -96,5 +100,13 @@ public class Skill {
 
     public List<Character> getCharacters() {
         return characters;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

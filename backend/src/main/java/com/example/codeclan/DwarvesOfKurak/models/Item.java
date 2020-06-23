@@ -41,7 +41,10 @@ public class Item {
     @JoinColumn(name="dropped_in",referencedColumnName = "id")
     private Encounter encounter;
 
-    public Item(String name, String type, Double itemStrength, Double buyCost, Double sellCost) {
+    @Column
+    private String image;
+
+    public Item(String name, String type, Double itemStrength, Double buyCost, Double sellCost, String image) {
         this.name = name;
         this.type = type;
         this.itemStrength = itemStrength;
@@ -49,6 +52,7 @@ public class Item {
         this.sellCost = sellCost;
         this.character = null;
         this.encounter = null;
+        this.image = image;
     }
 
     public Item (){
@@ -113,6 +117,14 @@ public class Item {
 
     public void setSellCost(Double sellCost) {
         this.sellCost = sellCost;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
 
