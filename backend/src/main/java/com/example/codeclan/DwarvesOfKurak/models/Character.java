@@ -69,6 +69,11 @@ public class Character {
     @JoinColumn(name="job", referencedColumnName = "id")
     private Job job;
 
+    @JsonIgnoreProperties(value="party")
+    @ManyToOne
+    @JoinColumn(name="party", referencedColumnName = "id")
+    private Party party;
+
     public Character(String name, String race, String gender, String backStory) {
         this.name = name;
         this.race = race;
@@ -84,6 +89,7 @@ public class Character {
         this.items = new ArrayList<>();
         this.job = null;
         this.skills = new ArrayList<>();
+        this.party = null;
     }
 
     public Character(){
