@@ -37,25 +37,25 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) {
 
         //Potions
-        Item healthPotion = new Item("Health Pot","hp_potion",10.0,5.0,2.0, "http://localhost:8080/api/assets/png?health_potion");
+        Item healthPotion = new Item("Health Pot","hp_potion",10.0,5.0,2.0, "http://localhost:8080/api/assets/png?image=health_potion");
         itemRepository.save(healthPotion);
-        Item manaPotion = new Item("Mana Potion", "mp_potion", 15.0, 5.0, 2.0,"http://localhost:8080/api/assets/png?mana_potion");
+        Item manaPotion = new Item("Mana Potion", "mp_potion", 15.0, 5.0, 2.0,"http://localhost:8080/api/assets/png?image=mana_potion");
         itemRepository.save(manaPotion);
 
         //Weapons
-        Item stick = new Item("wooden Stick", "weapon", 5.0, 10.0, 1.0,"http://localhost:8080/api/assets/png?longsword");
+        Item stick = new Item("wooden Stick", "weapon", 5.0, 10.0, 1.0,"http://localhost:8080/api/assets/png?image=longsword");
         itemRepository.save(stick);
-        Item sword = new Item("Sword", "weapon", 5.0, 30.0, 5.0,"http://localhost:8080/api/assets/png?longsword");
+        Item sword = new Item("Sword", "weapon", 5.0, 30.0, 5.0,"http://localhost:8080/api/assets/png?image=longsword");
         itemRepository.save(sword);
-        Item axe = new Item("Axe", "weapon", 8.0, 35.0, 8.0,"http://localhost:8080/api/assets/png?doubleaxe");
+        Item axe = new Item("Axe", "weapon", 8.0, 35.0, 8.0,"http://localhost:8080/api/assets/png?image=doubleaxe");
         itemRepository.save(axe);
 
         //Armour
-        Item leatherShirt = new Item("leather Shirt", "armour",5.0,10.0,1.0,"http://localhost:8080/api/assets/png?leather_armour");
+        Item leatherShirt = new Item("leather Shirt", "armour",5.0,10.0,1.0,"http://localhost:8080/api/assets/png?image=leather_armour");
         itemRepository.save(leatherShirt);
-        Item breastPlate = new Item("BreastPlate", "armour", 20.0, 100.0, 20.0,"http://localhost:8080/api/assets/png?breastplate");
+        Item breastPlate = new Item("BreastPlate", "armour", 20.0, 100.0, 20.0,"http://localhost:8080/api/assets/png?image=breastplate");
         itemRepository.save(breastPlate);
-        Item chainMail = new Item("ChainMail", "armour", 15.0, 80.0,15.0,"http://localhost:8080/api/assets/png?chainmail");
+        Item chainMail = new Item("ChainMail", "armour", 15.0, 80.0,15.0,"http://localhost:8080/api/assets/png?image=chainmail");
         itemRepository.save(chainMail);
 
         // Job Classes
@@ -69,13 +69,13 @@ public class DataLoader implements ApplicationRunner {
         jobRepository.save(mage);
 
         // Skills
-        Skill fart = new Skill("fart", "gas", "poison", 5,"http://localhost:8080/api/assets/png?heal");
+        Skill fart = new Skill("fart", "gas", "poison", 5,"http://localhost:8080/api/assets/png?image=heal");
         skillRepository.save(fart);
-        Skill fireBall = new Skill("Fire Ball", "fire", null, 10,"http://localhost:8080/api/assets/png?fireball");
+        Skill fireBall = new Skill("Fire Ball", "fire", null, 10,"http://localhost:8080/api/assets/png?image=fireball");
         skillRepository.save(fireBall);
-        Skill iceShard = new Skill("Ice Shard", "ice", null, 10,"http://localhost:8080/api/assets/png?iceshard");
+        Skill iceShard = new Skill("Ice Shard", "ice", null, 10,"http://localhost:8080/api/assets/png?image=iceshard");
         skillRepository.save(iceShard);
-        Skill healLight = new Skill("Light Heal", "heal", null, 40,"http://localhost:8080/api/assets/png?heal");
+        Skill healLight = new Skill("Light Heal", "heal", null, 40,"http://localhost:8080/api/assets/png?image=heal");
         skillRepository.save(healLight);
 
         // Monsters
@@ -93,13 +93,13 @@ public class DataLoader implements ApplicationRunner {
         monsterRepository.save(zombie2);
 
         //Characters
-        Character jim = new Character("Jim", "Dwarf", "Male", "the mystery of Jim","http://localhost:8080/api/assets/png?warrior");
+        Character jim = new Character("Jim", "Dwarf", "Male", "the mystery of Jim","http://localhost:8080/api/assets/png?image=warrior");
         characterRepository.save(jim);
-        Character brunor = new Character("Brunor", "ForestKin", "Male", "Brunor is one of the many ForestKin who commune with the spirits of the forest and are as such, one with the leylines of rejuvinating forest energy.","http://localhost:8080/api/assets/png?warrior");
+        Character brunor = new Character("Brunor", "ForestKin", "Male", "Brunor is one of the many ForestKin who commune with the spirits of the forest and are as such, one with the leylines of rejuvinating forest energy.","http://localhost:8080/api/assets/png?image=warrior");
         characterRepository.save(brunor);
-        Character dumas = new Character("Dumas", "MountainKin", "Male", "The mountain kin, proud and strong and one of the oldest clans of dwarf. Skilled in melee, Dumas still guards their ancestral mountain homes till this day","http://localhost:8080/api/assets/png?warrior");
+        Character dumas = new Character("Dumas", "MountainKin", "Male", "The mountain kin, proud and strong and one of the oldest clans of dwarf. Skilled in melee, Dumas still guards their ancestral mountain homes till this day","http://localhost:8080/api/assets/png?image=warrior");
         characterRepository.save(dumas);
-        Character durlin = new Character("Durlin", "CityKin", "Male", "Though few in number, the city kin live in large cities among the other greater races - Humans and Elves. The more magically attuned of them even join the guilds of magic and learn the ways or sorcery","http://localhost:8080/api/assets/png?mage");
+        Character durlin = new Character("Durlin", "CityKin", "Male", "Though few in number, the city kin live in large cities among the other greater races - Humans and Elves. The more magically attuned of them even join the guilds of magic and learn the ways or sorcery","http://localhost:8080/api/assets/png?image=mage");
         characterRepository.save(durlin);
 
         //Encounters

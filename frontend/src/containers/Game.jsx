@@ -45,7 +45,7 @@ const Game = (props)=>{
         
     }
 
-
+    if(!monsters) return null
     if(!character) return null
     return (
         <div className="game_screen">
@@ -53,15 +53,11 @@ const Game = (props)=>{
             <div className="game_screen_top">
                 <BattleLog />
                 <Monster monster={monsters}/>
-                <div className="game_screen_sprites">
-                    <img src={monsters.image} width="50px" height="50px"/>
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="25px" height="25px"/>
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="25px" height="25px"/>
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="50px" height="50px"/>
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="70px" height="70px" />
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="20px" height="20px" />
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="50px" height="50px"/>
-                    <img src="http://localhost:8080/api/assets/gif?image=slime" width="100px" height="100px"/>
+                <div className="game_screen_sprites_L">
+                    <img src={character.image} width="100px" height="100px"/>
+                </div>
+                <div className="game_screen_sprites_R">
+                    <img src={monsters.image} width="100px" height="100px"/>
                 </div>
             </div>
             <div className="game_screen_bottom">
