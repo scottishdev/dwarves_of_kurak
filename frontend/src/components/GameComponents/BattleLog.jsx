@@ -1,13 +1,17 @@
 import React from 'react';
 
 const BattleLog = ({battleLog})=>{
-
+    const battleLine = battleLog.log.map((text,index)=>{
+            return (
+                <div key={index}>{text} <br /></div>
+            )
+        })
+    
 return(
 
     <div className="game_screen_log">
-                    need a span array that posts the newest text here, maximum 5 lines<br />
-                   {battleLog.log[0]}
-                </div>
+        {battleLine}
+    </div>
 )
 
 }

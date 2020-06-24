@@ -30,27 +30,50 @@ const Game = (props)=>{
     }
 
     function attack(){
-        const updateBattleLog = battleLog.log
-        const battleEvent = "shit happens"
-        if(updateBattleLog.length<5){
-            updateBattleLog.push(battleEvent)
-        } else{
-            updateBattleLog.shift()
-            updateBattleLog.push(battleEvent)
-        }
-        console.log("updateBattleLog:");
-        console.log(updateBattleLog);
-        
-        setBattleLog({log:updateBattleLog})
-        // const turn_one = "" + {character.name} + " attacks " + {monster.name} + " for " + {character.strength} + " damage."
-        // const turn_two = "" + {monster.name} + " attacks " + {character.name} + " for " + {monster.strength} + " damage."
-        // const updateMonster = monsters
+        console.log("updateBattleLog");
+        const battleEvent2 = "battle log2"
+        const turn_one = "" + character.name + " attacks " + monster.name + " for " + character.strength + " damage."
+        damageMonster(character.strength)
+        const turn_two = "" + monster.name + " attacks " + character.name + " for " + monster.strength + " damage."
+        damagePlayer(monsters.strength)
         // const updateCharacter = character
         //logic => player attack minus monster hp and render update.
         //logic => wait 2 sec
         //log => monstername attacks player for # damage.
         //logic => monster attack minus player hp and render update.
-       setBattleLog()
+        const newLog = updateBattleEvents(battleEvent)
+        setBattleLog({log:newLog})
+    }
+
+    function updateBattleEvents(event){
+        const log = battleLog.log
+        if(log.length<5){
+            log.push(event)
+        } else{
+            log.shift()
+            log.push(event)
+        }
+        return log
+    }
+
+    function damagePlayer(dmg){
+        const hp = character.hitPoints
+        if(dmg < hp ){
+            hp = hp - dmg
+        } else{
+            hp = 0
+        }
+        setCharacter({hitPoints:hp})
+    }
+
+    function damageMonster(dmg){
+        const hp = monsters.hitPoints
+        if(dmg < hp ){
+            hp = hp - dmg
+        } else{
+            hp = 0
+        }
+        setMonsters({hitPoints:hp})
     }
 
     if(!monsters) return null
