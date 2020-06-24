@@ -16,20 +16,28 @@ const PartySelect = (props)=>{
   }
 
 
-  const partySelectorComponents = i.map(index=>{
-    return (
-      <CharSelect
-      characters={props.characterAssets}
-      character={selChar.party[index]}
-      key={index}
-      onHandleChange={char_id=>handlePartyChange(char_id,index)}
-      />
+    const partySelectorComponents = i.map(index=>{
+        return (
+        <CharSelect
+        characters={props.characterAssets}
+        character={selChar.party[index]}
+        key={index}
+        onHandleChange={char_id=>handlePartyChange(char_id,index)}
+        />
 
-    )
+        )
+    })
 
-  })
-
-  if(selChar.party.length<3){
+    function partyComplete(){
+        if(selChar.party.length == 3){
+            return (
+                <div className="party_character_complete_box">
+                    <button className="party_character_complete_button" onClick={props.setPartyHandler} >Start Game</button>
+                </div>
+            )
+        }
+    }
+  
     return (
       <div className="party_setup">
       {console.log("rendering partySelect Container")}
@@ -39,17 +47,10 @@ const PartySelect = (props)=>{
       </div>
       <div className="party_character_boxes">
       {partySelectorComponents}
+      {partyComplete()}
       </div>
       </div>
     )
-  } else{
-    return(
-      <div className="party_setup">
-      <p>party setup complete</p>
-      <button onClick={props.setPartyHandler} >Start Game</button>
-      </div>
-    )
-  }
 }
 
 

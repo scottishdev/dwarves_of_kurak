@@ -130,9 +130,48 @@
     
 }
 .party_character_select_box{
-    width:350px;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-content:flex-start;
+    padding:10px;
+
+    width:330px;
     height:160px;
     margin:20px;
+    border:solid;
+    border-radius:15px;
+    box-shadow:5px 5px 10px red;
+}
+.party_character_complete_box{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    padding:10px;
+
+    width:330px;
+    height:160px;
+    margin:20px;
+    border-radius:15px;
+    
+}
+.party_character_complete_button{
+    width:160px;
+    border-radius:160px;
+    box-shadow: 5px 5px 10px green;
+    font-family:impact;
+    font-size:25px;
+}
+.party_character_image{
+width:55px;
+height:55px;
+}
+.party_character_text{
+height:55px;
+width:270px;
+}
+.party_character_backstory{
+    width:inherit;
 }
 .game_start_options{
     
