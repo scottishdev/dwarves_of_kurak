@@ -31,9 +31,8 @@ Open the back end folder in Intellij and run spring to populate database
 
 In the front end folder, in Terminal:`npm install`
 
-In client directory, in Terminal:`npm run serve`
+In Terminal to start project:`npm start`
 
-In server directory, in Terminal:`npm run server:dev`
 
 Click the link below to open project in browser
 LocalHost: http://localhost:8080/
