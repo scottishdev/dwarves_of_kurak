@@ -23,9 +23,13 @@ div{
     background-size:cover;
 }
 .game_screen_log{
-    width:643px;
-    height:100px;
-    color:red;
+    width:633px;
+    height:90px;
+    color:black;
+    font-family:Impact;
+    text-shadow: 2px 2px 5px white;
+    margin-left:10px;
+    margin-top:10px;
 }
 .game_screen_monster{
     width:150px;

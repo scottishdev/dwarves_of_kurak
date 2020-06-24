@@ -10,14 +10,13 @@ const Game = (props)=>{
     // function binds here
     const [monsters,setMonsters] = useState(null);
     const [character,setCharacter] = useState(null);
-    const [battleLog,setBattleLog] = useState({log:[]});
+    const [battleLog,setBattleLog] = useState({log:["Battle Log"]});
     const request = new Request;
 
     // function creation here
     useEffect(()=>{
         getPost()
         getParty()
-         
     },[])
     
     const getPost = ()=>{
@@ -31,23 +30,32 @@ const Game = (props)=>{
     }
 
     function attack(){
-
+        const updateBattleLog = battleLog.log
+        const battleEvent = "shit happens"
+        if(updateBattleLog.length<5){
+            updateBattleLog.push(battleEvent)
+        } else{
+            updateBattleLog.shift()
+            updateBattleLog.push(battleEvent)
+        }
+        console.log("updateBattleLog:");
+        console.log(updateBattleLog);
+        
+        setBattleLog({log:updateBattleLog})
         // const turn_one = "" + {character.name} + " attacks " + {monster.name} + " for " + {character.strength} + " damage."
         // const turn_two = "" + {monster.name} + " attacks " + {character.name} + " for " + {monster.strength} + " damage."
         // const updateMonster = monsters
         // const updateCharacter = character
-
         //logic => player attack minus monster hp and render update.
         //logic => wait 2 sec
         //log => monstername attacks player for # damage.
         //logic => monster attack minus player hp and render update.
-
        setBattleLog()
-        
     }
 
     if(!monsters) return null
     if(!character) return null
+    if(!battleLog === undefined) return null
     return (
         <div className="game_screen">
             {console.log("rendering game")}
