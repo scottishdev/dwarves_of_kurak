@@ -8,6 +8,9 @@ class App extends Component {
     <div className="whole_game_wrapper">
     <h1 className="game_title">The Annals:Dwarves Of Dark Kurak</h1>
     <Main />
+    <audio controls loop autoPlay>
+        <source src="OurMountain.mp3" type="audio/mpeg" loop="loop"/>
+    </audio>
     </div>
   );
   }
