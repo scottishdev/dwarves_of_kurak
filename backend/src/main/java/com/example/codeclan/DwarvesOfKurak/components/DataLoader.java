@@ -93,11 +93,11 @@ public class DataLoader implements ApplicationRunner {
         monsterRepository.save(zombie2);
 
         //Characters
-        Character jim = new Character("Jim", "Dwarf", "Male", "the mystery of Jim","http://localhost:8080/api/assets/png?image=warrior");
+        Character jim = new Character("Jim", "Dwarf", "Male", "the mystery of Jim","http://localhost:8080/api/assets/gif?image=dwarf_idle");
         characterRepository.save(jim);
-        Character brunor = new Character("Brunor", "ForestKin", "Male", "Brunor is one of the many ForestKin who commune with the spirits of the forest and are as such, one with the leylines of rejuvinating forest energy.","http://localhost:8080/api/assets/png?image=warrior");
+        Character brunor = new Character("Brunor", "ForestKin", "Male", "Brunor is one of the many ForestKin who commune with the spirits of the forest and are as such, one with the leylines of rejuvinating forest energy.","http://localhost:8080/api/assets/gif?image=dwarf_idle");
         characterRepository.save(brunor);
-        Character dumas = new Character("Dumas", "MountainKin", "Male", "The mountain kin, proud and strong and one of the oldest clans of dwarf. Skilled in melee, Dumas still guards their ancestral mountain homes till this day","http://localhost:8080/api/assets/png?image=warrior");
+        Character dumas = new Character("Dumas", "MountainKin", "Male", "The mountain kin, proud and strong and one of the oldest clans of dwarf. Skilled in melee, Dumas still guards their ancestral mountain homes till this day","http://localhost:8080/api/assets/gif?image=dwarf_idle");
         characterRepository.save(dumas);
         Character durlin = new Character("Durlin", "CityKin", "Male", "Though few in number, the city kin live in large cities among the other greater races - Humans and Elves. The more magically attuned of them even join the guilds of magic and learn the ways or sorcery","http://localhost:8080/api/assets/png?image=mage");
         characterRepository.save(durlin);

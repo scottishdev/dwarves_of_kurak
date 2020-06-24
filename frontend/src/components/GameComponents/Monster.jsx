@@ -9,7 +9,7 @@ const Monster = ({monster}) => {
             <span>HP:{monster.hitPoints}</span><br />
             <span>MP:{monster.manaPoints}</span>
 
-            
+
         </div>
     )
 
