@@ -31,17 +31,16 @@ const Game = (props)=>{
 
     function attack(){
         console.log("updateBattleLog");
-        const battleEvent2 = "battle log2"
-        const turn_one = "" + character.name + " attacks " + monster.name + " for " + character.strength + " damage."
+        const turn_one = "" + character.name + " attacks " + monsters.name + " for " + character.strength + " damage."
         damageMonster(character.strength)
-        const turn_two = "" + monster.name + " attacks " + character.name + " for " + monster.strength + " damage."
+        const turn_two = "" + monsters.name + " attacks " + character.name + " for " + monsters.strength + " damage."
         damagePlayer(monsters.strength)
         // const updateCharacter = character
         //logic => player attack minus monster hp and render update.
         //logic => wait 2 sec
         //log => monstername attacks player for # damage.
         //logic => monster attack minus player hp and render update.
-        const newLog = updateBattleEvents(battleEvent)
+        const newLog = updateBattleEvents(turn_one)
         setBattleLog({log:newLog})
     }
 
