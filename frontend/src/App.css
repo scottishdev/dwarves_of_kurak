@@ -3,10 +3,6 @@
     height:600px;
     background-color:skyblue;
 }
-div{
-    border:solid;
-    border-width:thin;
-}
 .game_screen{
     width:inherit;
     height:inherit;
